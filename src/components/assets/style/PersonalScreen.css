@@ -1,0 +1,151 @@
+.userprofileactive {
+    display: none;
+}
+
+.userprofile {
+    margin-left: 40px;
+}
+
+.userimg {
+    width: 31px;
+    height: 31px;
+}
+
+.usercontent {
+    padding: 7px 9px;
+    border-radius: 50%;
+}
+
+.notification_msg {
+    position: relative;
+    text-indent: 0px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.notificationmsg {
+    position: absolute;
+    top: -5px;
+    left: 30px;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    background-color: var(--message-color);
+    text-indent: 0px;
+    border-radius: 50%;
+    font-size: 10px;
+    font-weight: bold;
+    font-family: var(--subtext);
+    color: var(--button-text-color);
+}
+
+.useroffermessagecontainertop {
+    position: absolute;
+    top: 57px;
+    right: 12px;
+    width: 30px;
+    height: 30px;
+    transform: rotate(225deg);
+    background-color: var(--navbar-color);
+    /* background-color: yellow; */
+    box-shadow: -15px 0px 12px -4px rgba(0, 0, 0, 0.3);
+    z-index: 99;
+}
+
+.useroffermessagecontainer {
+    position: absolute;
+    top: 70px;
+    right: -280px;
+    background-color: var(--navbar-color);
+    /* background-color: red; */
+    border-radius: 9px;
+    width: 400px;
+    height: 340px;
+    box-shadow: -15px 0px 12px -4px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+}
+
+.useroffermessagecontant {
+    background-color: rgba(208, 221, 255, 0.61);
+    margin: 9px 0;
+    width: 95%;
+    height: max-content;
+    padding: 12px 9px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.useroffermessageuserinforow {
+    display: flex;
+    align-items: flex-start;
+}
+
+.useroffermessageuserinfocol {
+    padding-right: 9px;
+}
+
+.useroffermessageuserpcolp {
+    font-size: 17px;
+    color: var(--text-color);
+    font-family: var(--subtext);
+    padding-bottom: 2px;
+}
+
+.useroffermessageuserpcolsubp {
+    font-size: 13px;
+    color: var(--subtext-color);
+    font-family: var(--subtext);
+    letter-spacing: .54px;
+    width: 100%;
+    line-height: 15px;
+}
+
+.useroffermessageuserprow {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.useroffermessageuserinfoviewall {
+    font-size: 14px;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    padding: 9px 0;
+    color: var(--subtext-color);
+    font-family: var(--subtext);
+}
+
+/* .useroffermessagecontantindicatoractive {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: #70DA1D;
+    float: right;
+    margin-right: 1px;
+    margin-bottom: 4px;
+} */
+
+.useroffermessagecontantindicator {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: transparent;
+    float: right;
+    margin-right: 1px;
+    margin-bottom: 4px;
+}
+
+@media (min-width:250px) and (max-width:1198px) {
+    .userprofileactive {
+        display: block;
+    }
+}

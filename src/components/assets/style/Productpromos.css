@@ -1,0 +1,59 @@
+.productvideocontainer {
+               width: 100%;
+               height: max-content;
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               padding-top: 90px;
+               padding-bottom: 100px;
+}
+
+.productvideocontant {
+               position: relative;
+               top: 0;
+               bottom: 0;
+               left: 0;
+               right: 0;
+               width: 100%;
+               height: max-content;
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               flex-direction: column;
+}
+
+.productvideocontantbtn {
+               position: absolute;
+               bottom: 35px;
+               left: 140px;
+}
+
+.productvideocontantbtn>button {
+               background-color: var(--button-color);
+               width: 118px;
+               height: 40px;
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               /* border-radius: 25px; */
+               font-size: 18px;
+               text-decoration: none;
+               list-style-type: none;
+               font-family: var(--button-text);
+               margin-left: 30px;
+               outline: none;
+               border: none;
+               cursor: pointer;
+}
+
+.productvideocontantbtnlink {
+               text-decoration: none;
+               list-style-type: none;
+               color: var(--button-text-color);
+}
+
+.productvideocontant>video {
+               object-fit: cover;
+               width: 100%;
+               height: 600px;
+}

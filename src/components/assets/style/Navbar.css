@@ -1,0 +1,234 @@
+.Container {
+    background-color: var(--navbar-color);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    z-index: 90;
+}
+
+.Navbarhead {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    width: 90%;
+    box-shadow: 0 6px 29px 0 #00000004;
+}
+
+.Menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-indent: 80px;
+    padding-left: 170px;
+    width: max-content;
+}
+
+.linkmenu {
+    text-decoration: none;
+    list-style-type: none;
+    color: var(--text-color);
+    font-family: var(--title);
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.account {
+    display: flex;
+    align-items: center;
+}
+
+.account_img {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.notification,
+.favourite,
+.cart {
+    /* text-indent: 35px; */
+    padding: 0 19px;
+}
+
+.notification_msg {
+    position: relative;
+    text-indent: 0px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.notificationmsg {
+    position: absolute;
+    top: -5px;
+    left: 10px;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    background-color: var(--message-color);
+    text-indent: 0px;
+    border-radius: 50%;
+    font-size: 10px;
+    font-weight: bold;
+    font-family: var(--subtext);
+    color: var(--button-text-color);
+}
+
+.Login_button {
+    width: 118px;
+    height: 40px;
+    background-color: var(--button-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 25px;
+    font-size: 18px;
+    text-decoration: none;
+    list-style-type: none;
+    font-family: var(--button-text);
+    color: var(--button-text-color);
+    margin-left: 30px;
+}
+
+.Menubar,
+.useraccount,
+.logo_menu,
+.Menu_active,
+.Loginbutton {
+    display: none;
+}
+
+.navbarimg {
+    width: 190px;
+    height: 170px;
+    position: absolute;
+    top: 10px;
+    left: -110px;
+    rotate: -7.82deg;
+}
+
+@media (min-width:250px) and (max-width:470px) {
+
+    /* .Loginbutton {
+        width: 65px !important;
+        height: 35px !important;
+        background-color: var(--button-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 25px;
+        font-size: 15px !important;
+        text-decoration: none;
+        list-style-type: none;
+        padding: 20px 45px !important;
+        font-family: var(--button-text);
+        color: var(--button-text-color);
+    }
+
+    .logo {
+        transform: translateX(50%);
+    } */
+}
+
+@media (min-width:250px) and (max-width:1198px) {
+
+    .Menubar,
+    .useraccount {
+        display: block;
+    }
+
+    .Menu {
+        flex-direction: column;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        text-indent: 0px;
+        padding: 15px 0;
+        width: 0;
+        left: -200px;
+        right: 0;
+        top: 75px;
+        background-color: var(--navbar-color);
+        position: absolute;
+        height: 100vh;
+        transition: .1s ease-in-out;
+        z-index: 100;
+    }
+
+    .Menu_active {
+        flex-direction: column;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        text-indent: 0px;
+        padding: 15px 0;
+        width: 100%;
+        left: 0;
+        right: 0;
+        top: 75px;
+        background-color: var(--navbar-color);
+        position: absolute;
+        height: 100vh;
+        transition: .4s ease-in-out;
+        z-index: 100;
+    }
+
+    .account,
+    .Login_button {
+        display: none;
+    }
+
+    .Menu_Link {
+        margin: 29px 0;
+        width: 100%;
+        padding-left: 20px;
+    }
+
+    .Navbarhead {
+        width: 100%;
+        padding: 0 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .Loginbutton {
+        width: 118px;
+        height: 40px;
+        background-color: var(--button-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 25px;
+        font-size: 18px;
+        text-decoration: none;
+        list-style-type: none;
+        font-family: var(--button-text);
+        color: var(--button-text-color);
+    }
+
+    .navbarimg {
+        /* width: 190px;
+        height: 170px;
+        position: absolute;
+        top: 10px;
+        left: 340px;
+        rotate: -7.82deg; */
+        display: none;
+    }
+
+    /* .logo {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding-right: 45px;
+    } */
+}

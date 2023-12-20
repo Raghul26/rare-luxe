@@ -1,0 +1,365 @@
+.container {
+    width: 100%;
+}
+
+.content {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    overflow-y: hidden;
+}
+
+.img {
+    width: 725px;
+    height: max-content;
+}
+
+.content_login {
+    width: 100%;
+    height: 124vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login_form {
+    background-color: var(--navbar-color);
+    width: 540px;
+    height: max-content;
+    /* height: max-content; */
+    box-shadow: 4px 4px 19px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+}
+
+.logo {
+    width: 69px;
+    height: 60px;
+}
+
+.company_logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* padding: 25px 0; */
+    padding: 15px 0;
+    width: 100%;
+}
+
+.wellcome_msg {
+    width: 100%;
+}
+
+.wellcome_msgp {
+    font-size: 17px;
+    color: var(--text-color);
+    letter-spacing: 2px;
+    font-family: var(--subtext);
+    font-weight: 600;
+    padding-right: 5px;
+    letter-spacing: 2.64px;
+    line-height: normal;
+    white-space: nowrap;
+}
+
+.wellcome_msgp1 {
+    font-size: 14px;
+    color: var(--subtext-color);
+    letter-spacing: 1px;
+    font-family: var(--subtext);
+    width: 60%;
+    text-align: center;
+    font-weight: 500;
+}
+
+.msg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* padding-bottom: 20px; */
+    padding-bottom: 10px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* padding-top: 70px; */
+    padding-top: 40px;
+    width: 100%;
+}
+
+.email_input {
+    outline: none;
+    border: 0.5px solid #7c7c7c7f;
+    border-radius: 3px;
+    background-color: transparent;
+    color: "#7C7C7C";
+    width: 380px;
+    height: 50px;
+    font-size: 17px;
+    font-family: var(--subtext);
+    padding-left: 19px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.email_input::placeholder {
+    color: "#7C7C7C";
+}
+
+.input {
+    padding-bottom: 30px;
+    width: max-content;
+}
+
+.login_button {
+    background-color: var(--button-color);
+    color: var(--button-text-color);
+    outline: none;
+    border: none;
+    width: 380px;
+    height: 50px;
+    font-family: var(--button-text);
+    font-size: 16px;
+    font-weight: lighter;
+    letter-spacing: 2px;
+    border-radius: 3px;
+}
+
+.email {
+    position: relative;
+}
+
+.securepassowrd {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    opacity: 0.4;
+    top: 12px;
+    right: 15px;
+}
+
+.forgotpassword_siginup {
+    padding-top: 15px;
+    /* padding-top: 4px; */
+    width: 70%;
+    padding-bottom: 50px;
+}
+
+.forgotpasswordsignup {
+    text-align: left;
+    /* padding-right: 3px; */
+    font-family: var(--subtext);
+    color: var(--subtext-color);
+    font-size: 15px;
+    letter-spacing: .5px;
+    font-weight: 500;
+}
+
+.account_divison {
+    padding-top: 15px;
+    position: relative;
+}
+
+.account_divisonp {
+    background-color: var(--navbar-color);
+    /* background-color: red; */
+    width: 40px;
+    height: 24px;
+    font-size: 12px;
+    font-family: var(--subtext);
+    letter-spacing: .5px;
+    color: var(--subtext-color);
+    position: absolute;
+    bottom: -9px;
+    left: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.divison {
+    border: 1px dashed #7c7c7c7f;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.loginsiginup {
+    font-family: var(--subtext);
+    color: var(--subtext-color);
+    font-size: 15px;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+.link {
+    font-family: var(--subtext);
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    /* background-color: rgba(0, 0, 0, 0.247); */
+    background-color: var(--body-color);
+    position: absolute;
+    top: 0;
+}
+
+.loadinglogo {
+    animation: loading 1s infinite;
+    animation-direction: alternate-reverse;
+}
+
+.errormsg {
+    font-size: 12px;
+    font-family: var(--subtext);
+    color: var(--message-color);
+}
+
+@keyframes loading {
+    0% {
+        width: 51px;
+        height: 41px;
+    }
+
+    100% {
+        width: 71px;
+        height: 61px;
+    }
+}
+
+@media (min-width:250px) and (max-width:320px) {
+    .email_input {
+        outline: none;
+        border: 0.5px solid #7c7c7c7f;
+        border-radius: 3px;
+        background-color: transparent;
+        color: "#7C7C7C";
+        width: 240px !important;
+        height: 50px;
+        font-size: 17px;
+        font-family: var(--subtext);
+        padding-left: 19px;
+        font-weight: 300;
+        letter-spacing: 1px;
+    }
+
+    .login_button {
+        background-color: var(--button-color);
+        color: var(--button-text-color);
+        outline: none;
+        border: none;
+        width: 240px !important;
+        height: 50px;
+        font-family: var(--button-text);
+        font-size: 15px;
+        font-weight: lighter;
+        letter-spacing: 2px;
+        border-radius: 3px;
+    }
+
+    .forgotpassword_loginsiginup {
+        padding-top: 15px;
+        width: 250px !important;
+        padding-bottom: 50px;
+    }
+
+    .account_divisonp {
+        left: 110px !important;
+    }
+}
+
+
+@media (min-width:250px) and (max-width:400px) {
+    .email_input {
+        outline: none;
+        border: 0.5px solid #7c7c7c7f;
+        border-radius: 3px;
+        background-color: transparent;
+        color: "#7C7C7C";
+        width: 280px;
+        height: 50px;
+        font-size: 17px;
+        font-family: var(--subtext);
+        padding-left: 19px;
+        font-weight: 300;
+        letter-spacing: 1px;
+    }
+
+    .login_button {
+        background-color: var(--button-color);
+        color: var(--button-text-color);
+        outline: none;
+        border: none;
+        width: 280px;
+        height: 50px;
+        font-family: var(--button-text);
+        font-size: 15px;
+        font-weight: lighter;
+        letter-spacing: 2px;
+        border-radius: 3px;
+    }
+
+    .forgotpassword_loginsiginup {
+        padding-top: 15px;
+        width: 285px;
+        padding-bottom: 50px;
+    }
+
+    .account_divisonp {
+        left: 130px;
+    }
+
+    .wellcome_msgp1 {
+        font-size: 14px;
+        color: var(--subtext-color);
+        letter-spacing: 1px;
+        font-family: var(--subtext);
+        width: 90%;
+        text-align: center;
+        font-weight: 500;
+    }
+
+    body {
+        background-color: var(--navbar-color);
+    }
+
+    .login_form {
+        background-color: transparent;
+        box-shadow: none;
+    }
+}
+
+@media (min-width:250px) and (max-width:1198px) {
+    .content {
+        flex-direction: column;
+    }
+
+    .img {
+        display: none;
+    }
+}
+
+@media (min-width:400px) and (max-width:535px) {
+    body {
+        background-color: var(--navbar-color);
+    }
+
+    .forgotpassword_loginsiginup {
+        padding-top: 15px;
+        width: 385px;
+        padding-bottom: 50px;
+    }
+
+    .login_form {
+        background-color: transparent;
+        box-shadow: none;
+    }
+}

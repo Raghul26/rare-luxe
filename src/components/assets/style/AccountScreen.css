@@ -1,0 +1,430 @@
+.informationcontainer {
+    width: 100%;
+    height: 100vh;
+    margin-top: 150px;
+}
+
+.informationcontent {
+    display: flex;
+    width: 93%;
+    justify-content: flex-start;
+}
+
+.usernavigation {
+    /* padding-left: 55px; */
+    padding-bottom: 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Duru Sans-Regular", Helvetica;
+    /* font-weight: 400; */
+}
+
+
+.usernavigationlink {
+    /* font-family: var(--button-text); */
+    color: var(--text-color);
+    font-weight: 400;
+    text-decoration: none;
+    list-style-type: none;
+    letter-spacing: 0.8px;
+}
+
+.usernavigationpage {
+    color: var(--text-color);
+    width: 92%;
+    font-size: 17px;
+    color: #7c7c7cc7;
+    text-decoration: none;
+    list-style-type: none;
+    letter-spacing: 0.8px;
+    font-weight: 400;
+}
+
+.information_sublisthead {
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.information_list {
+    background-color: var(--navbar-color);
+    width: 345px;
+    height: max-content;
+    padding-top: 20px;
+    padding-left: 30px;
+    padding-right: 25px;
+    border-radius: 4px;
+    margin-right: 29px;
+}
+
+.information_listcontent>p {
+    font-size: 20px;
+    /* font-weight: 501; */
+    letter-spacing: 1px;
+    font-family: var(--subtext);
+    color: var(--text-color);
+    margin-bottom: 18px;
+}
+
+.information_listorder {
+    font-family: var(--subtext);
+    color: var(--text-color);
+    font-size: 17px;
+    padding-top: 18px;
+    padding-bottom: 10px;
+    letter-spacing: 0.88px;
+    /* font-weight: 501; */
+}
+
+.information_sublist {
+    padding-left: 45px;
+    letter-spacing: 0.8px;
+    font-family: var(--subtext);
+    color: var(--text-color);
+    font-weight: 300;
+    line-height: 25px;
+}
+
+.logoutbtn {
+    margin-top: 115px;
+    margin-bottom: 19px;
+    outline: none;
+    width: 110px;
+    height: 38px;
+    border: 1px solid #1D1C13;
+    background-color: transparent;
+    font-family: var(--button-text);
+    font-size: 15px;
+    border-radius: 4px;
+}
+
+.informationlist_img {
+    margin-bottom: 40px;
+}
+
+.informationlistimgline {
+    width: 140px;
+    height: 140px;
+    background-color: var(--navbar-color);
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.informationlistimg {
+    width: 135px;
+    height: 135px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.uploadimg {
+    background-color: var(--navbar-color);
+    position: absolute;
+    bottom: 0px;
+    right: -12px;
+    width: 47px;
+    height: 47px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.informationlist_title {
+    font-family: var(--subtext);
+    color: var(--text-color);
+    font-size: 20px;
+    letter-spacing: 0.8px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    padding-bottom: 15px;
+}
+
+.informationlist_subtitle {
+    font-family: var(--subtext);
+    font-size: 14px;
+    color: var(--subtext-color);
+    letter-spacing: 0.72px;
+    width: 560px;
+}
+
+.informationlist_imgtitle {
+    padding-bottom: 40px;
+}
+
+.email_input {
+    color: var(--button-text);
+}
+
+.forminput,
+.forminfo {
+    display: flex;
+}
+
+.formpassword {
+    margin-right: 40px;
+}
+
+.information_listmenu {
+    display: none;
+}
+
+.userimg {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.infobtn {
+    width: 100%;
+}
+
+.notification_msg {
+    position: relative;
+    text-indent: 0px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.notificationmsg {
+    position: absolute;
+    top: -5px;
+    left: 30px;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    background-color: var(--message-color);
+    text-indent: 0px;
+    border-radius: 50%;
+    font-size: 10px;
+    font-weight: bold;
+    font-family: var(--subtext);
+    color: var(--button-text-color);
+}
+
+
+
+@media (min-width:250px) and (max-width:790px) {
+    .informationcontent {
+        flex-direction: column;
+    }
+
+    .information_list {
+        display: none;
+    }
+
+    .informationlist_details {
+        display: none;
+    }
+
+    .information_listmenu {
+        display: flex;
+        flex-direction: column;
+        text-indent: 0px;
+        padding: 15px 0;
+        width: 100%;
+        /* left: 0; */
+        right: 0;
+        top: 70px;
+        background-color: var(--navbar-color);
+        position: absolute;
+        height: max-content;
+        z-index: 90;
+    }
+
+    .forminput,
+    .forminfo {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .informationlist_subtitle {
+        font-family: var(--subtext);
+        font-size: 15px;
+        line-height: 18px;
+        color: var(--subtext-color);
+        letter-spacing: 0.72px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .informationlist_img {
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100% !important;
+    }
+
+    .informationlist_title {
+        font-family: var(--subtext);
+        color: var(--text-color);
+        font-size: 20px;
+        letter-spacing: 0.8px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        padding-bottom: 15px;
+        text-align: center;
+    }
+
+    .formuser {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin-top: 20px;
+    }
+
+    .forminput {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .formpassword {
+        margin: 0;
+    }
+
+    .information_listorder {
+        font-family: var(--subtext);
+        color: var(--text-color);
+        font-size: 18px;
+        padding-top: 9px;
+        padding-bottom: 10px;
+        letter-spacing: 0.88px;
+        /* font-weight: 501; */
+    }
+
+    .information_listhead {
+        height: 40px;
+        width: 90%;
+        overflow: hidden;
+        transition: .4s ease;
+    }
+
+    .information_listhead1 {
+        width: 90%;
+        height: 40px;
+        overflow: hidden;
+        transition: .4s ease;
+    }
+
+    .information_listhead_active1 {
+        width: 90%;
+        height: 100px;
+        overflow: hidden;
+        transition: .4s ease;
+    }
+
+    .information_listhead_active {
+        height: 130px;
+        width: 90%;
+        overflow: hidden;
+        transition: .4s ease;
+    }
+
+    .information_sublist {
+        padding-left: 0px;
+        letter-spacing: 0.8px;
+        font-family: var(--subtext);
+        color: var(--text-color);
+        font-weight: 300;
+        line-height: 25px;
+    }
+
+    .infolist,
+    .infolist1 {
+        width: 31px;
+        height: 31px;
+        /* margin-top: 4px; */
+        transform: rotate(0deg);
+        transition: .4s ease;
+    }
+
+    .infolist_active,
+    .infolist_active1 {
+        width: 31px;
+        height: 31px;
+        /* margin-top: 4px; */
+        transform: rotate(180deg);
+        transition: .4s ease;
+    }
+
+    .logoutbtn {
+        margin-top: 50px;
+        margin-left: 15px;
+        margin-bottom: 19px;
+        outline: none;
+        width: 110px;
+        height: 38px;
+        border: 1px solid #1D1C13;
+        background-color: transparent;
+        font-family: var(--button-text);
+        font-size: 15px;
+        border-radius: 4px;
+    }
+
+    .informationlist_titleinfo {
+        margin-left: 15px;
+        font-family: var(--subtext);
+        color: var(--text-color);
+        font-size: 20px;
+        letter-spacing: 0.8px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        padding: 15px 0;
+        width: max-content;
+    }
+
+    .informationlist_subtitleinfo {
+        margin-left: 15px;
+        font-family: var(--subtext);
+        font-size: 14px;
+        color: var(--subtext-color);
+        letter-spacing: 0.72px;
+    }
+}
+
+@media (min-width:400px) and (max-width:1200px) {
+    .formuser {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .forminput,
+    .forminfo {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .informationlist_title {
+        font-family: var(--subtext);
+        color: var(--text-color);
+        font-size: 20px;
+        letter-spacing: 0.8px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        padding-bottom: 15px;
+    }
+
+    .informationlist_subtitle {
+        font-family: var(--subtext);
+        font-size: 14px;
+        color: var(--subtext-color);
+        letter-spacing: 0.72px;
+    }
+
+    .informationlist_imgtitle {
+        padding-bottom: 40px;
+    }
+}

@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Duru+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@100;200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    background-color: var(--body-color);
+    /* background-color: rgb(206, 187, 187); */
+}
+
+:root {
+    --button-text: 'Duru Sans';
+    --title: 'Cinzel', serif;
+    --subtext: 'Lato';
+    --body-color: #F0E6DA;
+    --navbar-color: #F2EDE8;
+    --button-color: #1D1C13;
+    --sub-color: #3a2516;
+    --text-color: #212427;
+    --subtext-color: #7C7C7C;
+    --link-color: #2962FF;
+    --button-text-color: #F2EDE8;
+    --message-color: #DA1D27;
+}
+
+::selection {
+    background-color: var(--text-color);
+    color: var(--button-text-color);
+}

@@ -1,0 +1,158 @@
+.productreviewcontainer {
+    width: 100%;
+}
+
+.productreviewcontent {
+    width: 100%;
+    height: max-content;
+}
+
+.productsubreviewp {
+    text-align: center;
+    color: var(--subtext-color);
+    font-family: var(--subtext);
+    font-size: 14px;
+    width: 630px;
+    line-height: 24px;
+    font-weight: 400;
+    letter-spacing: 0.68px;
+}
+
+.productreviewrow {
+    width: 100%;
+    height: max-content;
+    /* padding-top: 20px; */
+    padding-bottom: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+}
+
+.productreviewcolumn {
+    width: 100%;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row !important;
+    margin: 10px;
+}
+
+.productreviews {
+    width: 480px !important;
+    height: 250px;
+    /* height: max-content; */
+    border-radius: 9px;
+    background-color: var(--navbar-color);
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 12px;
+    cursor: grab;
+}
+
+.productreviewtop>img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+.productreviewtopname {
+    color: var(--text-color);
+    font-family: var(--button-text);
+    font-size: 17px;
+    padding-top: 5px;
+}
+
+.productreviewtop {
+    display: flex;
+    /* align-items: center; */
+    padding-bottom: 29px;
+}
+
+.productreviewratingsdetail {
+    font-family: var(--button-text);
+    font-size: 12px;
+    color: var(--subtext-color);
+    padding-right: 12px;
+    padding-bottom: 12px;
+}
+
+.productreviewratingsp {
+    font-family: var(--subtext);
+    font-size: 15px;
+    letter-spacing: .54px;
+    line-height: 23px;
+    color: var(--text-color);
+}
+
+@media (min-width:200px) and (max-width:670px) {
+    .productreviews {
+        height: 250px;
+    }
+
+    .react-multi-carousel-track {
+        /* background-color: red; */
+        position: absolute;
+        left: 200% !important;
+    }
+
+    .react-multiple-carousel__arrow {
+        position: absolute;
+        top: 320px !important;
+    }
+}
+
+@media (min-width:465px) and (max-width:1485px) {
+    .productreviews {
+        height: 250px;
+    }
+
+    .react-multi-carousel-track {
+        /* background-color: red; */
+        position: absolute;
+        left: 75% !important;
+    }
+
+    .react-multiple-carousel__arrow {
+        position: absolute;
+        top: 320px !important;
+        z-index: 10 !important;
+    }
+}
+
+@media (min-width:1024px) and (max-width:1470px) {
+    .react-multi-carousel-track {
+        /* background-color: red !important; */
+        position: absolute;
+        left: 0% !important;
+        width: max-content !important;
+    }
+}
+
+@media (min-width:200px) and (max-width:1485px) {
+    .react-multiple-carousel__arrow--right {
+        right: calc(30% + 1px) !important;
+    }
+
+    .react-multiple-carousel__arrow--left {
+        left: calc(30% + 1px) !important;
+    }
+
+    .react-multiple-carousel__arrow {
+        position: absolute;
+        top: 300px;
+        outline: 0;
+        transition: all .5s;
+        border-radius: 35px;
+        z-index: 10;
+        border: 0;
+        background: rgba(0, 0, 0, 0.5);
+        min-width: 43px;
+        min-height: 43px;
+        opacity: 1;
+        cursor: pointer;
+    }
+}

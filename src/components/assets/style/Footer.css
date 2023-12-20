@@ -1,0 +1,34 @@
+.footercontainer {
+               width: 100%;
+               background-color: var(--navbar-color);
+               height: max-content;
+               display: flex;
+               align-items: center;
+               justify-content: center;
+}
+
+.footercontant {
+               width: 94%;
+               height: 50vh;
+               padding: 12px;
+               margin-top: 35px;
+}
+
+.footerlogo {
+               width: 120px;
+               display: flex;
+               align-items: center;
+               /* justify-content: center; */
+               flex-direction: column;
+}
+
+.footerlogo>img {
+               width: 60px;
+               height: 50px;
+               margin-bottom: 4px;
+}
+
+.footerlogo>p {
+               font-family: var(--title);
+               font-size: 12px;
+}

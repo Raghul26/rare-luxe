@@ -1,0 +1,203 @@
+.productappcontainer {
+    width: 100%;
+    padding-bottom: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.productappcontain {
+    width: 75%;
+}
+
+.productapprow {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.productapp_palystore>img {
+    width: 200px;
+}
+
+.productapp_appimg {
+    width: 255px;
+    border-radius: 45px;
+    margin-right: 90px;
+    z-index: 10;
+}
+
+.productapp_appleimg {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.productapp_appimgback {
+    width: 450px;
+    z-index: 10;
+}
+
+.productapp_imgdesign {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.productapp_heading {
+    font-size: 35px;
+    width: 540px;
+    font-family: var(--title);
+    font-weight: 500;
+    letter-spacing: 2%;
+    color: var(--text-color);
+    padding-bottom: 20px;
+}
+
+.productapp_subheading {
+    font-size: 17px;
+    width: 340px;
+    padding-bottom: 60px;
+    font-family: var(--subtext);
+    letter-spacing: 4%;
+    color: var(--subtext-color);
+}
+
+@media (min-width:620px) and (max-width:800px) {
+    .productappcontain {
+        width: 100% !important;
+    }
+
+    .productapprow {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 12px !important;
+    }
+
+    .productapp_appimg {
+        width: 170px !important;
+        border-radius: 30px !important;
+        margin-right: 70px !important;
+        z-index: 10;
+    }
+
+    .productapp_appimgback {
+        width: 320px;
+        z-index: 10;
+    }
+
+    .productapp_heading {
+        font-size: 20px;
+        width: 280px;
+        /* padding: 0 12px; */
+        font-family: var(--title);
+        font-weight: 500;
+        letter-spacing: 2%;
+        color: var(--text-color);
+        padding-bottom: 20px;
+    }
+
+    .productapp_subheading {
+        font-size: 14px;
+        width: 300px;
+        /* padding: 0 12px; */
+        padding-bottom: 60px;
+        font-family: var(--subtext);
+        letter-spacing: 4%;
+        color: var(--subtext-color);
+    }
+}
+
+@media (min-width:654px) and (max-width:1030px) {
+    .productappcontain {
+        width: 100%;
+    }
+
+    .productapprow {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .productapp_heading {
+        font-size: 25px;
+        width: 300px;
+        /* padding: 0 12px; */
+        font-family: var(--title);
+        font-weight: 500;
+        letter-spacing: 2%;
+        color: var(--text-color);
+        padding-bottom: 20px;
+    }
+
+    .productapp_subheading {
+        font-size: 14px;
+        width: 310px;
+        /* padding: 0 12px; */
+        padding-bottom: 60px;
+        font-family: var(--subtext);
+        letter-spacing: 4%;
+        color: var(--subtext-color);
+    }
+
+    .productapp_appimg {
+        width: 210px;
+        border-radius: 45px;
+        margin-right: 90px;
+        z-index: 10;
+    }
+
+    .productapp_appimgback {
+        /* width: 320px; */
+        z-index: 10;
+    }
+}
+
+@media (min-width:250px) and (max-width:620px) {
+
+    .productapp_appimg,
+    .productapp_appimgback {
+        display: none;
+    }
+
+    /* .productappcontainer {
+        display: inline;
+    } */
+
+    .productappcontain {
+        width: max-content;
+        /* background-color: red; */
+    }
+
+    .productapprow {
+        display: flex;
+        align-items: center;
+        justify-content: center !important;
+        flex-direction: column;
+        padding: 12px;
+    }
+
+    .productapp_heading {
+        font-size: 23px;
+        width: 90%;
+        /* padding: 0 12px; */
+        font-family: var(--title);
+        font-weight: 500;
+        letter-spacing: 2%;
+        color: var(--text-color);
+        padding-bottom: 20px;
+    }
+
+    .productapp_subheading {
+        font-size: 13px;
+        width: 90%;
+        /* padding: 0 12px; */
+        padding-bottom: 60px;
+        font-family: var(--subtext);
+        letter-spacing: 4%;
+        color: var(--subtext-color);
+    }
+}
