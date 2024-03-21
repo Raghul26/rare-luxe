@@ -17,7 +17,7 @@ import image1 from "../assets/images/download-removebg-preview.png"
 import image2 from "../assets/images/download-removebg-preview (1).png"
 import image3 from "../assets/images/Paytm_Svg_Logo_xjltof.png"
 import image4 from "../assets/images/kisspng-computer-icons-payment-credit-card-electronic-fund-payment-methods-card-icon-5ab06f28258ea4.4371457915215122321538.png"
-
+import cartclose from "../assets/images/icons8-fast-cart-96.png"
 const CartScreen = ({ id, image, productname, productsubname, rating, productprice }) => {
     console.log(id, image, productname, productsubname, rating, productprice);
     const { usercart } = useSelector((state) => state.cart)
@@ -66,8 +66,12 @@ const CartScreen = ({ id, image, productname, productsubname, rating, productpri
         }
     ]
     const [order, setorder] = useState(null)
+    const [totalbtn, settotalbtn] = useState(true)
     const selectordertype = (image) => {
         setorder(image);
+    }
+    const setopenclosebtn = () => {
+        settotalbtn(!totalbtn)
     }
     return (
         <div>
@@ -201,15 +205,13 @@ const CartScreen = ({ id, image, productname, productsubname, rating, productpri
                                                                         <div className='cartcontantrow'>
                                                                             <div className='cartcontantcol'>
                                                                                 <div className='cartcontantimg' key={index}>
-                                                                                    <img src={data.image} alt='' style={{
-                                                                                        width: '150px',
-                                                                                        objectFit: "cover"
-                                                                                    }} />
+                                                                                    <img src={data.image} alt='' />
                                                                                 </div>
                                                                             </div>
                                                                             <div className='cartcontantcol'>
                                                                                 <p className='cartcontantp'>{data.productname}</p>
                                                                                 <p className='cartcontantsubp'>{data.productsubname}</p>
+                                                                                <p className='cartcontantsubp cartcontantcolcartcontantsubprice'>{data.productprice}</p>
                                                                                 <div className='cartcontantbtn'>
                                                                                     <button onClick={
                                                                                         data.quantity <= 1 ? () => decrementitemproduct(data.id) : () => decrementsingleproduct(data)
@@ -230,17 +232,10 @@ const CartScreen = ({ id, image, productname, productsubname, rating, productpri
                                                 }
 
                                             </div>
-                                            {/* <div className='cartcontantp cartcontantprice'>
-                                                <p>price</p>
-                                                {
-                                                    usercart.map((data, index) => {
-                                                        <div key={index}>
-                                                            <p className='cartcontantsubp'>{data.productprice}</p>
-                                                        </div>
-                                                    })
-                                                }
-                                            </div> */}
-                                            <div className='cartordercontentcoltotaltyperow'>
+                                            <div className={
+                                                totalbtn ? "cartordercontentcoltotaltyperowative" : "cartordercontentcoltotaltyperow "
+                                            }>
+                                                <img src={cartclose} alt='totalview' className='cartordercontentcoltotaltyperowcloseopenbtn' onClick={setopenclosebtn} />
                                                 <div className='cartordercontentcol cartordercontenttotal cartordercontentcoltotaltypecol'>
                                                     <p className='cartordercontenttotalsubtotal'>Sub Total</p>
                                                     <p className='cartordercontenttotalsubtotal'>Gst</p>
@@ -266,6 +261,7 @@ const CartScreen = ({ id, image, productname, productsubname, rating, productpri
                                                 <div className='cartordercontenttitleorder'>
                                                     <p>Place order</p>
                                                     <button>PLACE ORDER</button>
+                                                    <button className='cartordercontenttitleorderclosebtn' onClick={(e) => setopenclosebtn(true)}>CLOSE ORDER</button>
                                                 </div>
                                             </div>
                                         </div>
