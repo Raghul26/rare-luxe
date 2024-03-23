@@ -307,7 +307,7 @@
 
 .cartordercontentcoltotaltyperowative {
                width: min-content;
-               /* background-color: yellow; */
+               background-color: yellow;
                display: flex;
                align-items: flex-start;
                flex-direction: column;
