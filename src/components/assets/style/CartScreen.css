@@ -292,7 +292,7 @@
 }
 
 .cartcontantcolcartcontantsubprice {
-               display: block;
+               display: none;
                /* background-color: red; */
 }
 
