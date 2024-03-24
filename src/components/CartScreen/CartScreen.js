@@ -12,7 +12,7 @@ import Menubar from "../assets/images/menu.png"
 import Closebar from "../assets/images/close menu.png"
 import "../assets/style/PersonalScreen.css"
 import user from "../assets/images/user.png"
-import { addtocart, removefromcart, removelengthitem } from '../redux/feature/CartProduct'
+import { addtocart, removefromcart, removelengthitem, total } from '../redux/feature/CartProduct'
 import image1 from "../assets/images/download-removebg-preview.png"
 import image2 from "../assets/images/download-removebg-preview (1).png"
 import image3 from "../assets/images/Paytm_Svg_Logo_xjltof.png"
@@ -67,12 +67,23 @@ const CartScreen = ({ id, image, productname, productsubname, rating, productpri
     ]
     const [order, setorder] = useState(null)
     const [totalbtn, settotalbtn] = useState(true)
+    const [totalprice, settotalprice] = useState(0)
     const selectordertype = (image) => {
         setorder(image);
     }
     const setopenclosebtn = () => {
         settotalbtn(!totalbtn)
     }
+
+    useEffect(() => {
+        let total = 0;
+        usercart.map((product) => {
+            total += product.subtotal;
+        })
+
+        settotalprice(total)
+    }, [usercart])
+
     return (
         <div>
             {
@@ -211,7 +222,7 @@ const CartScreen = ({ id, image, productname, productsubname, rating, productpri
                                                                             <div className='cartcontantcol'>
                                                                                 <p className='cartcontantp'>{data.productname}</p>
                                                                                 <p className='cartcontantsubp'>{data.productsubname}</p>
-                                                                                <p className='cartcontantsubp cartcontantcolcartcontantsubprice'>{data.productprice}</p>
+                                                                                <p className='cartcontantsubp cartcontantcolcartcontantsubprice'>{data.quantity * data.productprice}</p>
                                                                                 <div className='cartcontantbtn'>
                                                                                     <button onClick={
                                                                                         data.quantity <= 1 ? () => decrementitemproduct(data.id) : () => decrementsingleproduct(data)
@@ -221,7 +232,7 @@ const CartScreen = ({ id, image, productname, productsubname, rating, productpri
                                                                                 </div>
                                                                             </div>
                                                                             <div className='cartcontantcol cartcontantp cartcontantprice'>
-                                                                                <p className='cartcontantsubp cartcontantsubprice'>{data.productprice}</p>
+                                                                                <p className='cartcontantsubp cartcontantsubprice'>{data.subtotal}</p>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -237,11 +248,16 @@ const CartScreen = ({ id, image, productname, productsubname, rating, productpri
                                             }>
                                                 <img src={cartclose} alt='totalview' className='cartordercontentcoltotaltyperowcloseopenbtn' onClick={setopenclosebtn} />
                                                 <div className='cartordercontentcol cartordercontenttotal cartordercontentcoltotaltypecol'>
-                                                    <p className='cartordercontenttotalsubtotal'>Sub Total</p>
+                                                    {/* <p className='cartordercontenttotalsubtotal'>Sub Total{totalprice}</p> */}
+                                                    <div className='cartordercontenttotaltotals'>
+                                                        <p className='cartordercontenttotalsubtotal'>Sub Total</p>
+                                                        <span className='cartordercontentsubtotal'>{totalprice}</span>
+                                                    </div>
                                                     <p className='cartordercontenttotalsubtotal'>Gst</p>
                                                     <p className='cartordercontenttotalsubtotal'>Company Invoice</p>
                                                     <div className='cartordercontenttotaltotal'>
                                                         <p className='cartordercontentsubtotal'>Total</p>
+                                                        <span className='cartordercontentsubtotal'>{totalprice}</span>
                                                     </div>
                                                 </div>
                                                 <div className='cartordercontenttitle'>
