@@ -95,6 +95,12 @@
                color: var(--button-text-color);
 }
 
+.cartordercontenttotaltotals {
+               display: flex;
+               align-items: center;
+               justify-content: space-between;
+}
+
 .cartcontainer {
                width: 100%;
                height: max-content;
@@ -138,7 +144,7 @@
                letter-spacing: 3%;
                color: var(--subtext-color);
                padding-bottom: 75px;
-               width: 200px;
+               width: 170px;
 }
 
 .cartcontantbtn {
@@ -167,7 +173,7 @@
 }
 
 .cartcontantprice {
-               width: max-content;
+               width: 200px;
                padding-left: 20px;
                display: block;
                /* text-align: center; */
@@ -209,6 +215,10 @@
 .cartordercontenttotaltotal {
                border-top: 1px dashed var(--subtext-color);
                padding-top: 12px;
+               display: flex;
+               align-items: center;
+               justify-content: space-between;
+               /* background-color: red; */
 }
 
 .cartordercontentcoltotaltypeimg {
@@ -292,7 +302,7 @@
 }
 
 .cartcontantcolcartcontantsubprice {
-               display: none;
+               display: block;
                /* background-color: red; */
 }
 
@@ -670,5 +680,24 @@
                               display: flex;
                               align-items: center;
                               justify-content: center;
+               }
+}
+
+@media (min-width:770px) and (max-width:1485px) {
+               .cartcontantprice {
+                              display: none !important;
+                              width: 70px;
+                              padding-left: 0px;
+                              display: block;
+               }
+}
+
+@media (min-width:806px) and (max-width:1180px) {
+               .cartordercontentrow {
+                              width: 93%;
+                              display: flex;
+                              align-items: start;
+                              justify-content: space-evenly;
+                              padding-bottom: 20px;
                }
 }
