@@ -13,8 +13,8 @@ const products = [
         image: Image1,
         productname: "EMPORIO ARMANI",
         productsubname: "Travel Essential Blended Regular Fit Blazer",
-        productprice: 'Rs : 10,000',
-        oldproductprice: 'Rs : 12,000',
+        productprice: 10000,
+        oldproductprice: 12000,
         category: "Men",
         rating: "4.5"
     },
@@ -23,7 +23,7 @@ const products = [
         image: Image2,
         productname: "EMPORIO ARMANI",
         productsubname: "Travel Essential Blended Regular Fit Blazer",
-        productprice: 'Rs : 12,000',
+        productprice: 12000,
         category: "Women",
         rating: "4.5"
     },
@@ -32,7 +32,7 @@ const products = [
         image: Image3,
         productname: "EMPORIO ARMANI",
         productsubname: "Travel Essential Blended Regular Fit Blazer",
-        productprice: 'Rs : 12,000',
+        productprice: 12000,
         offer: "Get Upto Extra 25% Off On Rs.3990 & Above. Max Discount Rs. 1500.",
         offerproducts: "View All Products",
         category: "Men",
@@ -43,8 +43,8 @@ const products = [
         image: Image4,
         productname: "EMPORIO ARMANI",
         productsubname: "Travel Essential Blended Regular Fit Blazer",
-        productprice: 'Rs : 12,000',
-        oldproductprice: 'Rs : 10,000',
+        productprice: 12000,
+        oldproductprice: 10000,
         category: "Men",
         rating: "4.5"
     },
@@ -53,7 +53,7 @@ const products = [
         image: Image5,
         productname: "EMPORIO ARMANI",
         productsubname: "Travel Essential Blended Regular Fit Blazer",
-        productprice: 'Rs : 12,000',
+        productprice: 12000,
         category: "Men",
         rating: "4.5"
     },
@@ -63,8 +63,8 @@ const products = [
         productname: "ISABEL MARANT",
         productsubname: "Zelikia Crew-Neck T-Shirt",
         offer: "Get Upto Extra 25% Off On Rs.3990 & Above. Max Discount Rs. 1500.",
-        productprice: 'Rs : 12,000',
-        oldproductprice: 'Rs : 12,000',
+        productprice: 12000,
+        oldproductprice: 12000,
         offerproducts: "View All Products",
         category: "Women",
         rating: "4.5"
@@ -74,7 +74,7 @@ const products = [
         image: Image7,
         productname: "EMPORIO ARMANI",
         productsubname: "Travel Essential Blended Regular Fit Blazer",
-        productprice: 'Rs : 12,000',
+        productprice: 12000,
         category: "Women",
         rating: "4.5"
     },
@@ -83,8 +83,8 @@ const products = [
         image: Image8,
         productname: "EMPORIO ARMANI",
         productsubname: "Travel Essential Blended Regular Fit Blazer",
-        productprice: 'Rs : 12,000',
-        oldproductprice: 'Rs : 10,000',
+        productprice: 12000,
+        oldproductprice: 10000,
         category: "Women",
         rating: "4.5"
     },
@@ -93,7 +93,7 @@ const products = [
         image: Image9,
         productname: "EMPORIO ARMANI",
         productsubname: "Travel Essential Blended Regular Fit Blazer",
-        productprice: 'Rs : 12,000',
+        productprice: 12000,
         category: "Men",
         rating: "4.5"
     }
