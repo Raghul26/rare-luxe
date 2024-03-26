@@ -43,7 +43,7 @@ const SignupScreen = () => {
         e.preventDefault()
         // seterror(Validation(values));
         localStorage.setItem("user", JSON.stringify(values))
-        if (values.username === "" || values.email === "" | values.password === "" || values.confirmpassword === "") {
+        if (values.username === "" || values.email === "" | values.password === "" || values.confirmpassword === "" || values.password !== values.confirmpassword) {
             seterror(Validation(values));
         } else {
             navigate("/login")
