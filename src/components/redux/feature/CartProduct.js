@@ -14,8 +14,9 @@ const CartProduct = createSlice({
 
       if (itemindex >= 0) {
         state.usercart[itemindex].quantity += 1
+        state.usercart[itemindex].subtotal = state.usercart[itemindex].quantity * action.payload.productprice;
       } else {
-        const temp = { ...action.payload, quantity: 1 }
+        const temp = { ...action.payload, quantity: 1, subtotal: action.payload.productprice }
         state.usercart = [...state.usercart, temp]
       }
     },
@@ -27,6 +28,7 @@ const CartProduct = createSlice({
       const removeitem = state.usercart.findIndex((state) => state.id === action.payload.id)
       if (state.usercart[removeitem].quantity >= 1) {
         state.usercart[removeitem].quantity -= 1
+        state.usercart[removeitem].subtotal = state.usercart[removeitem].quantity * action.payload.productprice;
       }
     },
   }
@@ -34,5 +36,5 @@ const CartProduct = createSlice({
 
 
 
-export const { addtocart, removefromcart, removelengthitem } = CartProduct.actions;
+export const { addtocart, removefromcart, removelengthitem, total } = CartProduct.actions;
 export default CartProduct.reducer
