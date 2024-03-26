@@ -12,7 +12,7 @@ import Menubar from "../assets/images/menu.png"
 import Closebar from "../assets/images/close menu.png"
 import "../assets/style/PersonalScreen.css"
 import user from "../assets/images/user.png"
-import { addtocart, removefromcart, removelengthitem, total } from '../redux/feature/CartProduct'
+import { addtocart, removefromcart, removelengthitem } from '../redux/feature/CartProduct'
 import image1 from "../assets/images/download-removebg-preview.png"
 import image2 from "../assets/images/download-removebg-preview (1).png"
 import image3 from "../assets/images/Paytm_Svg_Logo_xjltof.png"
@@ -68,6 +68,7 @@ const CartScreen = ({ id, image, productname, productsubname, rating, productpri
     const [order, setorder] = useState(null)
     const [totalbtn, settotalbtn] = useState(true)
     const [totalprice, settotalprice] = useState(0)
+    const [totalgstprice, settotalgstprice] = useState(0)
     const selectordertype = (image) => {
         setorder(image);
     }
@@ -77,11 +78,15 @@ const CartScreen = ({ id, image, productname, productsubname, rating, productpri
 
     useEffect(() => {
         let total = 0;
+        let totalgst = 150;
         usercart.map((product) => {
-            total += product.subtotal;
+            total += product.subtotal
         })
+        totalgst = total + totalgst
 
         settotalprice(total)
+        settotalgstprice(totalgst)
+        // alert(totalgstprice);
     }, [usercart])
 
     return (
@@ -253,11 +258,23 @@ const CartScreen = ({ id, image, productname, productsubname, rating, productpri
                                                         <p className='cartordercontenttotalsubtotal'>Sub Total</p>
                                                         <span className='cartordercontentsubtotal'>{totalprice}</span>
                                                     </div>
-                                                    <p className='cartordercontenttotalsubtotal'>Gst</p>
-                                                    <p className='cartordercontenttotalsubtotal'>Company Invoice</p>
+
+
+                                                    <div className='cartordercontenttotaltotals'>
+                                                        <p className='cartordercontenttotalsubtotal'>Gst</p>
+                                                        <span className='cartordercontentsubtotal'>150</span>
+                                                    </div>
+
+                                                    <div className='cartordercontenttotaltotals'>
+                                                        <p className='cartordercontenttotalsubtotal'>Company Invoice</p>
+                                                        <span className='cartordercontentsubtotal'>0</span>
+                                                    </div>
+
+
+                                                    {/* <p className='cartordercontenttotalsubtotal'>Company Invoice</p> */}
                                                     <div className='cartordercontenttotaltotal'>
                                                         <p className='cartordercontentsubtotal'>Total</p>
-                                                        <span className='cartordercontentsubtotal'>{totalprice}</span>
+                                                        <span className='cartordercontentsubtotal'>{totalgstprice}</span>
                                                     </div>
                                                 </div>
                                                 <div className='cartordercontenttitle'>
@@ -277,7 +294,7 @@ const CartScreen = ({ id, image, productname, productsubname, rating, productpri
                                                 <div className='cartordercontenttitleorder'>
                                                     <p>Place order</p>
                                                     <button>PLACE ORDER</button>
-                                                    <button className='cartordercontenttitleorderclosebtn' onClick={(e) => setopenclosebtn(true)}>CLOSE ORDER</button>
+                                                    <button className='cartordercontenttitleorderclosebtn' onClick={(e) => setopenclosebtn(true)}>CANCEL ORDER</button>
                                                 </div>
                                             </div>
                                         </div>
