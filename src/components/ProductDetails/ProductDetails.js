@@ -213,20 +213,36 @@ const ProductDetails = () => {
                   </div>
                   <p className='ProductDetails_offer'>{offer} <Link>{offerproducts}</Link></p>
                   <div className='ProductDetailsbutton'>
-                    <div className='ProductDetailscartbtn' onClick={(e) => sendtocart({
-                      id: id,
-                      image: image,
-                      productname: productname,
-                      productsubname: productsubname,
-                      productprice: productprice,
-                      category: category,
-                      rating: rating
-                    })}>
-                      Add to cart
-                    </div>
-                    <div className='ProductDetailsbuybtn'>
-                      Buy Now
-                    </div>
+                    {
+                      loggedin ?
+                        <>
+                          <div className='ProductDetailscartbtn' onClick={(e) => sendtocart({
+                            id: id,
+                            image: image,
+                            productname: productname,
+                            productsubname: productsubname,
+                            productprice: productprice,
+                            category: category,
+                            rating: rating
+                          })}>
+                            Add to cart
+                          </div>
+                          <div className='ProductDetailsbuybtn'>
+                            Buy Now
+                          </div>
+                        </>
+                        : <>
+                          <div className='productbuybtn' style={{
+                            cursor: "default",
+                            color: "#7C7C7C",
+                            width: '190px'
+                          }}>
+                            Before purchase or add cart create an account!
+                          </div>
+                        </>
+
+                    }
+
                   </div>
                 </div>
               </div>
