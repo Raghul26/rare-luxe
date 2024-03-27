@@ -9,9 +9,9 @@
 
 .footercontant {
                width: 94%;
-               height: 50vh;
-               padding: 12px;
-               margin-top: 35px;
+               height: max-content;
+               /* padding: 12px; */
+               margin-top: 0px;
 }
 
 .footerlogo {
@@ -20,9 +20,10 @@
                align-items: center;
                /* justify-content: center; */
                flex-direction: column;
+               padding: 12px 0;
 }
 
-.footerlogo>img {
+.footerlogolink>img {
                width: 60px;
                height: 50px;
                margin-bottom: 4px;
@@ -32,3 +33,76 @@
                font-family: var(--title);
                font-size: 12px;
 }
+
+.footermenucontant {
+               width: 100%;
+}
+
+.footermenurow {
+               display: flex;
+               align-items: flex-start;
+               justify-content: space-between;
+               flex-wrap: wrap;
+               width: 100%;
+               padding-left: 20px;
+               padding-bottom: 19px;
+               border-bottom: 1px solid var(--subtext-color);
+}
+
+.footemenucol>.footemenucoltitle {
+               font-family: var(--title);
+               font-size: 15px;
+               color: var(--text-color);
+               width: max-content;
+               font-weight: 550;
+               letter-spacing: .54px;
+               cursor: pointer;
+               padding: 12px 0;
+}
+
+.footemenucol>p {
+               font-family: var(--subtext);
+               font-size: 12px;
+               color: var(--subtext-color);
+               font-weight: 550;
+               letter-spacing: .54px;
+               cursor: pointer;
+               padding: 9px 0;
+}
+
+.footemenucol>p:hover {
+               border-bottom: 1px solid var(--subtext-color);
+               width: max-content;
+}
+
+.footemenucol {
+               width: 20%;
+               height: max-content;
+}
+
+.footercompanyrights {
+               width: 100%;
+               display: flex;
+               align-items: center;
+               justify-content: space-between;
+               /* background-color: red; */
+}
+
+.footercompanyrights>div>p {
+               font-family: var(--subtext);
+               font-size: 12px;
+               color: var(--text-color);
+               letter-spacing: .54px;
+               font-weight: 500;
+               padding: 19px 0;
+               /* width: 98%; */
+               height: max-content;
+}
+
+.footerfollowlog>img {
+               width: 20px;
+               margin: 0 9px;
+               cursor: pointer;
+}
+
+@media (min-width:425px) and (max-width:760px) {}
