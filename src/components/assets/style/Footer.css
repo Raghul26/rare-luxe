@@ -70,6 +70,11 @@
                padding: 9px 0;
 }
 
+.footemenucoltitle:hover {
+               cursor: default;
+               border-bottom: none !important;
+}
+
 .footemenucol>p:hover {
                border-bottom: 1px solid var(--subtext-color);
                width: max-content;
