@@ -225,13 +225,8 @@ const NewProduct = ({ cartmessage }) => {
                                                                         cursor: "default",
                                                                         color: "#7C7C7C"
                                                                     }}>
-                                                                        Please create an account, after add cart or purchase!
+                                                                        Before purchase or add cart create an account!
                                                                     </div>
-                                                                    {/* <div className='productbuybtn' style={{
-                                                                        cursor: "not-allowed"
-                                                                    }}>
-                                                                        Buy Now
-                                                                    </div> */}
                                                                 </> : <>
                                                                     <div className='productcartbtn' onClick={(e) => sendtocart(product)}>
                                                                         Add to cart
