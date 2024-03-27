@@ -9,11 +9,11 @@
 }
 
 .productvideocontant {
-               position: relative;
+               /* position: relative;
                top: 0;
                bottom: 0;
                left: 0;
-               right: 0;
+               right: 0; */
                width: 100%;
                height: max-content;
                display: flex;
@@ -22,11 +22,14 @@
                flex-direction: column;
 }
 
-.productvideocontantbtn {
+/* .productvideocontantbtn {
+               width: 100%;
                position: absolute;
                bottom: 35px;
+               padding-left: 65px;
                left: 140px;
-}
+               background-color: red;
+} */
 
 .productvideocontantbtn>button {
                background-color: var(--button-color);
@@ -46,11 +49,11 @@
                cursor: pointer;
 }
 
-.productvideocontantbtnlink {
+/* .productvideocontantbtnlink {
                text-decoration: none;
                list-style-type: none;
                color: var(--button-text-color);
-}
+} */
 
 .productvideocontant>video {
                object-fit: cover;
