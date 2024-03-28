@@ -48,9 +48,6 @@ const NewProduct = ({ cartmessage }) => {
     const incrementitemproduct = (e) => {
         dispatch(addtocart(e))
     }
-    const removecart = (e) => {
-        dispatch(removefromcart(e))
-    }
     const decrementitemproduct = (e) => {
         dispatch(removefromcart(e))
     }
