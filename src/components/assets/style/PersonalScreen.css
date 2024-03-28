@@ -100,6 +100,7 @@
 
 .useroffermessageuserpcolsubp {
     font-size: 13px;
+    padding-bottom: 12px;
     color: var(--subtext-color);
     font-family: var(--subtext);
     letter-spacing: .54px;
@@ -142,6 +143,15 @@
     float: right;
     margin-right: 1px;
     margin-bottom: 4px;
+}
+
+.useroffermessageusertimeanddate {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: var(--subtext);
+    color: var(--subtext-color);
+    font-size: 12px;
 }
 
 @media (min-width:250px) and (max-width:1198px) {
