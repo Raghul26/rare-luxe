@@ -47,19 +47,18 @@ const LoginScreen = () => {
             localStorage.setItem("loggeduser", true)
             navigate("/auth")
             alert("Email and password match")
+
+            const date = new Date().toLocaleDateString();
+            const time = new Date().toLocaleTimeString();
+            console.log(time, "time");
+            console.log(date, "date");
+            window.localStorage.setItem("date", (date))
+            window.localStorage.setItem("time", (time))
+
         } else if (values.email === "" || values.password === "" || loggeduser.email === "" || loggeduser.password === "") {
             seterror(Validationlogin(values));
             alert("Email and password didn't match")
         }
-        // if (values.email === loggeduser.email && values.password === loggeduser.password) {
-        //     localStorage.setItem("loggeduser", true)
-        //     navigate("/auth")
-        //     alert("Email and password match")
-        // }
-        // else {
-        //     seterror(Validationlogin(values));
-        //     alert("Email and password didn't match")
-        // }
         window.localStorage.setItem("loggedin", true)
     }
     return (
