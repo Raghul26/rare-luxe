@@ -24,6 +24,10 @@ import loadinglogo from "../assets/images/logo.png"
 import { useSelector } from 'react-redux';
 
 const PersonalScreen = () => {
+
+    const userlogintime = window.localStorage.getItem("time");
+    const userlogindate = window.localStorage.getItem("date")
+
     const userprofile = window.localStorage.getItem("profile");
     const username = JSON.parse(localStorage.getItem("user"));
     const loggedin = window.localStorage.getItem("loggeduser")
@@ -164,6 +168,10 @@ const PersonalScreen = () => {
                                                                             color: '#2962FF'
                                                                         }}>click here</Link> to claim the discount.  Thankyou for connecting us!</p>
                                                                     </div>
+                                                                </div>
+                                                                <div className='useroffermessageusertimeanddate'>
+                                                                    <p>{userlogindate}</p>
+                                                                    <p>{userlogintime}</p>
                                                                 </div>
                                                             </div>
                                                         </div>
