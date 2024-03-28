@@ -12,7 +12,7 @@ import Menubar from "../assets/images/menu.png"
 import Closebar from "../assets/images/close menu.png"
 import "../assets/style/PersonalScreen.css"
 import user from "../assets/images/user.png"
-import { addtocart, removefromcart, removelengthitem } from '../redux/feature/CartProduct'
+import { addtocart, removefromcart, removelengthitem, cartordermessage } from '../redux/feature/CartProduct'
 import image1 from "../assets/images/download-removebg-preview.png"
 import image2 from "../assets/images/download-removebg-preview (1).png"
 import image3 from "../assets/images/Paytm_Svg_Logo_xjltof.png"
@@ -21,7 +21,9 @@ import cartclose from "../assets/images/icons8-fast-cart-96.png"
 
 const CartScreen = ({ id, image, productname, productsubname, rating, productprice }) => {
     console.log(id, image, productname, productsubname, rating, productprice);
+
     const { usercart } = useSelector((state) => state.cart)
+    const { userorder } = useSelector((state) => state.cart)
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const [loading, setloading] = useState(false);
@@ -90,6 +92,38 @@ const CartScreen = ({ id, image, productname, productsubname, rating, productpri
         // alert(totalgstprice);
     }, [usercart])
 
+    const payproduct = (e) => {
+        dispatch(cartordermessage(e))
+        const date = new Date().toLocaleDateString();
+        const time = new Date().toLocaleTimeString();
+        console.log(time, "ordertime");
+        console.log(date, "orderdate");
+        window.localStorage.setItem("orderdate", (date))
+        window.localStorage.setItem("ordertime", (time))
+    }
+    const userordertime = window.localStorage.getItem("ordertime");
+    const userorderdate = window.localStorage.getItem("orderdate")
+    const userlogintime = window.localStorage.getItem("time");
+    const userlogindate = window.localStorage.getItem("date")
+
+    const userprofile = window.localStorage.getItem("profile");
+    const username = JSON.parse(localStorage.getItem("user"));
+    const [showusernotificationn, setshowusernotificationn] = useState(false)
+
+    const shownotification = () => {
+        setshowusernotificationn(!showusernotificationn)
+    }
+
+    const [updatenotification, setupdatenotification] = useState(true)
+    const viewupdatenotification = () => {
+        setupdatenotification(false)
+        window.localStorage.setItem("userfirstnotification", true)
+    }
+    console.log(userorder, "showordermessage");
+
+    const loggedin = window.localStorage.getItem("loggeduser")
+    const [useroffermessage, setuseroffermessage] = useState(loggedin)
+
     return (
         <div>
             {
@@ -150,9 +184,131 @@ const CartScreen = ({ id, image, productname, productsubname, rating, productpri
                     <Link to='/login' className='Loginbutton'>Login</Link>
                 </div> */}
                                     <div className='account'>
-                                        <div className='notification'>
+                                        {/* <div className='notification'>
                                             <img src={Notofication} alt='notification' className='account_img' />
+                                            <div className='notificationmsg'>
+                                                <p>{userorder.length}</p>
+                                            </div>
+                                        </div> */}
+
+                                        <div className='cart notification_msg'>
+                                            <img src={Notofication} alt='cart' className='account_img' onClick={shownotification} />
+                                            <div className='notificationmsg' onClick={shownotification}>
+                                                <p>{userorder.length}</p>
+                                            </div>
+                                            {
+                                                showusernotificationn ? <>
+                                                    <span className='useroffermessagecontainertop' />
+                                                    <div className='useroffermessagecontainer'>
+                                                        <div className='useroffermessagecontant'>
+                                                            <div className='useroffermessageuserinfo' onClick={viewupdatenotification}>
+                                                                <p className={updatenotification ? 'useroffermessagecontantindicatoractive' : 'useroffermessagecontantindicator'} />
+                                                                <div className='useroffermessageuserinforow'>
+                                                                    <div className='useroffermessageuserinfocol'>
+                                                                        {userprofile ?
+                                                                            <img src={user} alt='img' style={{
+                                                                                width: '40px',
+                                                                                height: '40px',
+                                                                                objectFit: "cover",
+                                                                                borderRadius: "50%"
+                                                                            }} /> : <img src={userprofile} alt='img' style={{
+                                                                                width: '40px',
+                                                                                height: '40px',
+                                                                                objectFit: "cover",
+                                                                                borderRadius: "50%"
+                                                                            }} />
+                                                                        }
+                                                                    </div>
+                                                                    <div className='useroffermessageuserinfocol'>
+                                                                        <div className='useroffermessageuserprow'>
+                                                                            <div className='useroffermessageuserpcol'>
+                                                                                <p className='useroffermessageuserpcolp'>Welcome, {username.username}</p>
+                                                                            </div>
+                                                                            <div className='useroffermessageuserpcol'>
+                                                                                <p className='useroffermessageuserpcolsubp'>to our rare & luxe, claim your 20% welcome discount on exclusive shirts etc... <Link style={{
+                                                                                    color: '#2962FF'
+                                                                                }}>click here</Link> to claim the discount.  Thankyou for connecting us!</p>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div className='useroffermessageusertimeanddate'>
+                                                                            <p>{userlogindate}</p>
+                                                                            <p>{userlogintime}</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                {
+                                                                    userorder.map((index) => (
+                                                                        <>
+                                                                            <div className='useroffermessageuserinforow' key={index}>
+                                                                                <div className='useroffermessageuserinfocol'>
+                                                                                    {userprofile ?
+                                                                                        <img src={user} alt='img' style={{
+                                                                                            width: '40px',
+                                                                                            height: '40px',
+                                                                                            objectFit: "cover",
+                                                                                            borderRadius: "50%"
+                                                                                        }} /> : <img src={userprofile} alt='img' style={{
+                                                                                            width: '40px',
+                                                                                            height: '40px',
+                                                                                            objectFit: "cover",
+                                                                                            borderRadius: "50%"
+                                                                                        }} />
+                                                                                    }
+                                                                                </div>
+                                                                                <div className='useroffermessageuserinfocol'>
+                                                                                    <div className='useroffermessageuserprow'>
+                                                                                        <div className='useroffermessageuserpcol'>
+                                                                                            <p className='useroffermessageuserpcolp'>Hi, {username.username}</p>
+                                                                                        </div>
+                                                                                        <div className='useroffermessageuserpcol'>
+                                                                                            <p className='useroffermessageuserpcolsubp'>your order successfully placed. it’s delivered within 2 - 3 days, Thankyou for order in rare & luxe.</p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div className='useroffermessageusertimeanddate'>
+                                                                                        <p>{userorderdate}</p>
+                                                                                        <p>{userordertime}</p>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div >
+                                                                        </>
+
+
+                                                                    ))
+                                                                }
+                                                            </div>
+
+                                                        </div>
+                                                        {/* <p className='useroffermessageuserinfoviewall'><Link style={{
+                                                            color: '#7C7C7C',
+                                                            textDecoration: 'none'
+                                                        }}>View all</Link></p> */}
+                                                    </div>
+                                                </> : null
+                                            }
                                         </div>
+
+
+
                                         <div className='favourite'>
                                             <img src={Favourite} alt='favourite' className='account_img' />
                                         </div>
@@ -271,6 +427,11 @@ const CartScreen = ({ id, image, productname, productsubname, rating, productpri
                                                         <span className='cartordercontentsubtotal'>0</span>
                                                     </div>
 
+                                                    <div className='cartordercontenttotaltotals'>
+                                                        <p className='cartordercontenttotalsubtotal'>Delivery Fee</p>
+                                                        <span className='cartordercontentsubtotal'>Free</span>
+                                                    </div>
+
 
                                                     {/* <p className='cartordercontenttotalsubtotal'>Company Invoice</p> */}
                                                     <div className='cartordercontenttotaltotal'>
@@ -293,8 +454,8 @@ const CartScreen = ({ id, image, productname, productsubname, rating, productpri
                                                     }
                                                 </div>
                                                 <div className='cartordercontenttitleorder'>
-                                                    <p>Place order</p>
-                                                    <button>PLACE ORDER</button>
+                                                    {/* <p>Place order</p> */}
+                                                    <button onClick={(e) => payproduct(e)}>PLACE ORDER</button>
                                                     <button className='cartordercontenttitleorderclosebtn' onClick={(e) => setopenclosebtn(true)}>CANCEL ORDER</button>
                                                 </div>
                                             </div>
