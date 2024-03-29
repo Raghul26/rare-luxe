@@ -194,7 +194,7 @@ const CartScreen = ({ id, image, productname, productsubname, rating, productpri
                                         <div className='cart notification_msg'>
                                             <img src={Notofication} alt='cart' className='account_img' onClick={shownotification} />
                                             <div className='notificationmsg' onClick={shownotification}>
-                                                <p>{userorder.length}</p>
+                                                <p>{userorder.length + 1}</p>
                                             </div>
                                             {
                                                 showusernotificationn ? <>
@@ -455,7 +455,11 @@ const CartScreen = ({ id, image, productname, productsubname, rating, productpri
                                                 </div>
                                                 <div className='cartordercontenttitleorder'>
                                                     {/* <p>Place order</p> */}
-                                                    <button onClick={(e) => payproduct(e)}>PLACE ORDER</button>
+                                                    {
+                                                        order ? <Link to={'/order'} className='cartordercontenttitleorderlink'>
+                                                            <button onClick={(e) => payproduct(e)}>PLACE ORDER</button>
+                                                        </Link> : <button className='cartordercontenttitleorderdisable' disabled onClick={(e) => payproduct(e)}>PLACE ORDER</button>
+                                                    }
                                                     <button className='cartordercontenttitleorderclosebtn' onClick={(e) => setopenclosebtn(true)}>CANCEL ORDER</button>
                                                 </div>
                                             </div>
