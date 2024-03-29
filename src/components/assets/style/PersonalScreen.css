@@ -63,6 +63,7 @@
     right: -280px;
     background-color: var(--navbar-color);
     /* background-color: red; */
+    overflow-y: scroll;
     border-radius: 9px;
     width: 400px;
     height: 340px;
@@ -73,18 +74,23 @@
 }
 
 .useroffermessagecontant {
-    background-color: rgba(208, 221, 255, 0.61);
-    margin: 9px 0;
+    /* background-color: rgba(208, 221, 255, 0.61); */
+    /* margin: 9px 0; */
     width: 95%;
     height: max-content;
-    padding: 12px 9px;
-    border-radius: 12px;
-    cursor: pointer;
+    /* padding: 12px 9px; */
+    /* border-radius: 12px; */
+    /* cursor: pointer; */
 }
 
 .useroffermessageuserinforow {
     display: flex;
     align-items: flex-start;
+    margin-top: 9px;
+    background-color: rgba(208, 221, 255, 0.61);
+    padding: 12px 9px;
+    border-radius: 12px;
+    cursor: pointer;
 }
 
 .useroffermessageuserinfocol {
@@ -123,6 +129,7 @@
     padding: 9px 0;
     color: var(--subtext-color);
     font-family: var(--subtext);
+    background-color: yellow;
 }
 
 /* .useroffermessagecontantindicatoractive {
