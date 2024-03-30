@@ -302,6 +302,21 @@
                letter-spacing: .54px;
 }
 
+.cartordercontenttitleorder>.cartordercontenttitleorderclosebtn {
+               list-style-type: none;
+               width: 100%;
+               height: 50px;
+               border-radius: 4px;
+               outline: none;
+               border: none;
+               cursor: pointer;
+               background-color: var(--button-color);
+               color: var(--button-text-color);
+               font-family: var(--button-text);
+               font-size: 15px;
+               letter-spacing: .54px;
+}
+
 .cartcontantcolcartcontantsubprice {
                display: block;
                /* background-color: red; */
@@ -574,7 +589,7 @@
                .cartordercontenttotal {
                               background-color: var(--navbar-color);
                               width: 100%;
-                              height: 210px;
+                              height: max-content;
                               padding-top: 12px;
                               padding-right: 12px;
                               padding-left: 12px;
