@@ -19,7 +19,7 @@ import image3 from "../assets/images/Paytm_Svg_Logo_xjltof.png"
 import image4 from "../assets/images/kisspng-computer-icons-payment-credit-card-electronic-fund-payment-methods-card-icon-5ab06f28258ea4.4371457915215122321538.png"
 import cartclose from "../assets/images/icons8-fast-cart-96.png"
 
-const CartScreen = ({ id, image, productname, productsubname, rating, productprice }) => {
+const CartScreen = ({ id, image, productname, productsubname, rating, productprice, sm, m, l, xl, selectsize }) => {
     console.log(id, image, productname, productsubname, rating, productprice);
     const { usercart } = useSelector((state) => state.cart)
     const navigate = useNavigate();
@@ -255,6 +255,7 @@ const CartScreen = ({ id, image, productname, productsubname, rating, productpri
                                                                                 <p className='cartcontantp'>{data.productname}</p>
                                                                                 <p className='cartcontantsubp'>{data.productsubname}</p>
                                                                                 <p className='cartcontantsubp cartcontantcolcartcontantsubprice'>{data.quantity * data.productprice}</p>
+                                                                                <p className='cartcontantsubp'>{data.selectsize}</p>
                                                                                 <div className='cartcontantbtn'>
                                                                                     <button onClick={
                                                                                         data.quantity <= 1 ? () => decrementitemproduct(data.id) : () => decrementsingleproduct(data)
@@ -326,7 +327,7 @@ const CartScreen = ({ id, image, productname, productsubname, rating, productpri
                                                 <div className='cartordercontenttitleorder'>
                                                     {/* <p>Place order</p> */}
                                                     {
-                                                        order ? <Link to={'/order'} className='cartordercontenttitleorderlink'>
+                                                        order ? <Link className='cartordercontenttitleorderlink'>
                                                             <button>PLACE ORDER</button>
                                                         </Link> : <button className='cartordercontenttitleorderdisable' disabled>PLACE ORDER</button>
                                                     }
