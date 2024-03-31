@@ -32,19 +32,10 @@ const CartProduct = createSlice({
         state.usercart[removeitem].subtotal = state.usercart[removeitem].quantity * action.payload.productprice;
       }
     },
-    cartordermessage: (state, action) => {
-      const ordermessage = [...state.userorder, action.payload]
-      if (ordermessage >= 0) {
-        state.userorder[ordermessage].quantity += 1
-      } else {
-        const temp = { ...action.payload, quantity: 1 }
-        state.userorder = [...state.userorder, temp]
-      }
-    }
   }
 })
 
 
 
-export const { addtocart, removefromcart, removelengthitem, total, cartordermessage } = CartProduct.actions;
+export const { addtocart, removefromcart, removelengthitem, total } = CartProduct.actions;
 export default CartProduct.reducer
