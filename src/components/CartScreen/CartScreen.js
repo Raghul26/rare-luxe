@@ -255,7 +255,7 @@ const CartScreen = ({ id, image, productname, productsubname, rating, productpri
                                                                                 <p className='cartcontantp'>{data.productname}</p>
                                                                                 <p className='cartcontantsubp'>{data.productsubname}</p>
                                                                                 <p className='cartcontantsubp cartcontantcolcartcontantsubprice'>{data.quantity * data.productprice}</p>
-                                                                                <p className='cartcontantsubp'>{data.selectsize}</p>
+                                                                                <p className='cartcontantsubp'>Size : {data.selectsize}</p>
                                                                                 <div className='cartcontantbtn'>
                                                                                     <button onClick={
                                                                                         data.quantity <= 1 ? () => decrementitemproduct(data.id) : () => decrementsingleproduct(data)
