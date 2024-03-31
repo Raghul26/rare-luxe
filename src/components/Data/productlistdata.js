@@ -16,7 +16,11 @@ const products = [
         productprice: 10000,
         oldproductprice: 12000,
         category: "Men",
-        rating: "4.5"
+        rating: "4.5",
+        sm: "S",
+        m: "M",
+        l: 'L',
+        xl: "XL"
     },
     {
         id: "1",
@@ -25,7 +29,11 @@ const products = [
         productsubname: "Travel Essential Blended Regular Fit Blazer",
         productprice: 12000,
         category: "Women",
-        rating: "4.5"
+        rating: "4.5",
+        sm: "S",
+        m: "M",
+        l: 'L',
+        xl: "XL"
     },
     {
         id: "3",
@@ -36,7 +44,11 @@ const products = [
         offer: "Get Upto Extra 25% Off On Rs.3990 & Above. Max Discount Rs. 1500.",
         offerproducts: "View All Products",
         category: "Men",
-        rating: "4.5"
+        rating: "4.5",
+        sm: "S",
+        m: "M",
+        l: 'L',
+        xl: "XL"
     },
     {
         id: "4",
@@ -46,7 +58,11 @@ const products = [
         productprice: 12000,
         oldproductprice: 10000,
         category: "Men",
-        rating: "4.5"
+        rating: "4.5",
+        sm: "S",
+        m: "M",
+        l: 'L',
+        xl: "XL"
     },
     {
         id: "5",
@@ -55,7 +71,11 @@ const products = [
         productsubname: "Travel Essential Blended Regular Fit Blazer",
         productprice: 12000,
         category: "Men",
-        rating: "4.5"
+        rating: "4.5",
+        sm: "S",
+        m: "M",
+        l: 'L',
+        xl: "XL"
     },
     {
         id: "6",
@@ -67,7 +87,11 @@ const products = [
         oldproductprice: 12000,
         offerproducts: "View All Products",
         category: "Women",
-        rating: "4.5"
+        rating: "4.5",
+        sm: "S",
+        m: "M",
+        l: 'L',
+        xl: "XL"
     },
     {
         id: "7",
@@ -76,7 +100,11 @@ const products = [
         productsubname: "Travel Essential Blended Regular Fit Blazer",
         productprice: 12000,
         category: "Women",
-        rating: "4.5"
+        rating: "4.5",
+        sm: "S",
+        m: "M",
+        l: 'L',
+        xl: "XL"
     },
     {
         id: "8",
@@ -86,7 +114,11 @@ const products = [
         productprice: 12000,
         oldproductprice: 10000,
         category: "Women",
-        rating: "4.5"
+        rating: "4.5",
+        sm: "S",
+        m: "M",
+        l: 'L',
+        xl: "XL"
     },
     {
         id: "9",
@@ -95,7 +127,11 @@ const products = [
         productsubname: "Travel Essential Blended Regular Fit Blazer",
         productprice: 12000,
         category: "Men",
-        rating: "4.5"
+        rating: "4.5",
+        sm: "S",
+        m: "M",
+        l: 'L',
+        xl: "XL"
     }
 ]
 export default products;
