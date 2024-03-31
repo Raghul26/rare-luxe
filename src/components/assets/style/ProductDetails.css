@@ -8,11 +8,44 @@
 
 .PrdouctDetailscontent {
     width: 100%;
-    /* height: max-content; */
     height: max-content;
     display: flex;
     align-items: center;
     flex-direction: column;
+}
+
+.ProductDetails_sizeimgcontent {
+    width: 100%;
+    height: 100vh;
+    background-color: #181818cb;
+    position: absolute;
+    top: 0;
+    z-index: 99;
+}
+
+.ProductDetails_sizeimg>img {
+    width: 490px;
+    border-radius: 4px;
+}
+
+.ProductDetails_sizeimgclosebtn {
+    width: 100%;
+}
+
+.ProductDetails_sizeimgclosebtn>img {
+    width: 40px;
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    cursor: pointer;
+}
+
+.ProductDetails_sizeimg {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .ProductDetailstopback {
@@ -53,6 +86,18 @@
     font-weight: 500;
 }
 
+.productdetailssizename {
+    font-family: var(--subtext);
+    color: var(--subtext-color);
+    font-size: 15px;
+    letter-spacing: 0.54px;
+    padding-left: 4px;
+    padding-bottom: 35px;
+    font-weight: 500;
+    cursor: pointer;
+    width: max-content;
+}
+
 .ProductDetails_ratings {
     display: flex;
     align-items: center;
@@ -87,7 +132,7 @@
     width: 50px;
     height: 35px;
     margin-top: 35px;
-    margin-bottom: 35px;
+    margin-bottom: 12px;
     margin-right: 12px;
     cursor: pointer;
 }
@@ -101,7 +146,7 @@
     width: 50px;
     height: 35px;
     margin-top: 35px;
-    margin-bottom: 35px;
+    margin-bottom: 12px;
     margin-right: 12px;
     cursor: pointer;
 }
@@ -125,6 +170,7 @@
 
 .ProductDetailabout {
     padding-top: 35px;
+    padding-bottom: 90px;
     width: 81%;
     height: max-content;
     color: var(--text-color);
@@ -140,7 +186,7 @@
 
 .ProductDetailsbutton {
     display: flex;
-    align-items: center;
+    align-items: baseline;
 }
 
 .ProductDetailscartbtn {
@@ -174,6 +220,41 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.ProductDetailscartdisablebtn {
+    background-color: #1d1c137a;
+    width: 135px;
+    height: 32px;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--subtext);
+    color: var(--button-color);
+    cursor: pointer;
+    border-radius: 4px;
+    margin-right: 12px;
+    cursor: not-allowed;
+}
+
+.ProductDetailsbuydisablebtn {
+    font-family: var(--subtext);
+    font-size: 16px;
+    color: var(--button-color);
+    font-weight: 400;
+    cursor: pointer;
+    width: 135px;
+    height: 32px;
+    border: 1px solid #1d1c137a;
+    letter-spacing: 0.54px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: not-allowed;
 }
 
 @media (min-width:200px) and (max-width:320px) {
@@ -300,6 +381,19 @@
         align-items: center;
         justify-content: center;
     }
+
+    .ProductDetails_sizeimg>img {
+        width: 280px;
+        border-radius: 4px;
+    }
+
+    .ProductDetails_sizeimgclosebtn>img {
+        width: 40px;
+        position: absolute;
+        top: 20px;
+        right: 19px;
+        cursor: pointer;
+    }
 }
 
 @media (min-width:320px) and (max-width:810px) {
@@ -382,14 +476,14 @@
 
     .ProductDetailsbutton {
         display: flex;
-        align-items: center;
+        align-items: baseline;
         flex-direction: column;
     }
 
-    .ProductDetailscartbtn {
-        background-color: var(--button-color);
-        width: 100%;
-        height: 40px;
+    .ProductDetailscartdisablebtn {
+        background-color: #1d1c137a;
+        width: 100% !important;
+        height: 32px;
         font-size: 16px;
         font-weight: 400;
         letter-spacing: 0.54px;
@@ -397,26 +491,28 @@
         align-items: center;
         justify-content: center;
         font-family: var(--subtext);
-        color: var(--button-text-color);
+        color: var(--button-color);
         cursor: pointer;
         border-radius: 4px;
-        margin-right: 0px;
+        margin-right: 12px;
         margin-bottom: 12px;
+        cursor: not-allowed;
     }
 
-    .ProductDetailsbuybtn {
+    .ProductDetailsbuydisablebtn {
         font-family: var(--subtext);
         font-size: 16px;
-        color: var(--text-color);
+        color: var(--button-color);
         font-weight: 400;
         cursor: pointer;
-        width: 100%;
-        height: 40px;
-        border: 1px solid var(--button-color);
+        width: 100% !important;
+        height: 32px;
+        border: 1px solid #1d1c137a;
         letter-spacing: 0.54px;
         border-radius: 4px;
         display: flex;
         align-items: center;
         justify-content: center;
+        cursor: not-allowed;
     }
 }
