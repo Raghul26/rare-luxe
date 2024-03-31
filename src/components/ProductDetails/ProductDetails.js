@@ -15,15 +15,17 @@ import "../assets/style/PersonalScreen.css"
 import user from "../assets/images/user.png"
 import { useDispatch, useSelector } from 'react-redux';
 import { addtocart } from '../redux/feature/CartProduct';
+import size from "../assets/images/Your paragraph text.png"
+import cancelmenu2 from "../assets/images/close menu2.png"
 
 const ProductDetails = () => {
   const dispatch = useDispatch();
-  const { usercart } = useSelector((state) => state.id === state.cart)
+  const { usercart } = useSelector((state) => state.cart)
   const [showmenus, setshowmenus] = useState(true);
   const [showmenus1, setshowmenus1] = useState(true);
   const [openlist, setopenlist] = useState(true);
   const [openlist1, setopenlist1] = useState(true);
-  const userprofile = localStorage.getItem("profile");
+  const loggedin = window.localStorage.getItem("loggeduser")
 
   const openmenu = () => {
     setshowmenus(!showmenus)
@@ -58,7 +60,7 @@ const ProductDetails = () => {
   // console.log(useParams());
   const { productId } = useParams()
   const product = productlistdata.find((product) => product.id === productId)
-  const { id, productname, image, productsubname, rating, offer, offerproducts, productprice, category } = product;
+  const { id, productname, image, productsubname, rating, offer, offerproducts, productprice, category, sm, m, l, xl } = product;
   const [selectsize, setselectsize] = useState(null)
   const handelselectsize = (sizeproduct) => {
     setselectsize(sizeproduct);
@@ -70,9 +72,16 @@ const ProductDetails = () => {
       setloading(false)
     }, 1200);
   }, [])
-  const loggedin = window.localStorage.getItem("loggeduser")
   const sendtocart = (e) => {
     dispatch(addtocart(e))
+  }
+  const [showusernotificationn, setshowusernotificationn] = useState(false)
+  const shownotification = () => {
+    setshowusernotificationn(!showusernotificationn)
+  }
+  const [sizeinfo, setsizeinfo] = useState(false)
+  const showsizeinfo = () => {
+    setsizeinfo(!sizeinfo)
   }
   return (
     <>
@@ -82,6 +91,19 @@ const ProductDetails = () => {
         </div> : <>
           {
             loggedin ? <div className='Container'>
+              {
+                sizeinfo ? <>
+                  <div className='ProductDetails_sizeimgcontent'>
+                    <div className='ProductDetails_sizeimgclosebtn'>
+                      <img src={cancelmenu2} alt='closebtn' onClick={(e) => showsizeinfo(e)} />
+                    </div>
+                    <div className='ProductDetails_sizeimg'>
+                      <img src={size} alt='size' />
+                    </div>
+                  </div>
+                </> : null
+              }
+
               <div className='Navbarhead'>
                 <div className='Menubar' onClick={openmenu}>
                   {
@@ -92,7 +114,6 @@ const ProductDetails = () => {
                     }} />
                   }
                 </div>
-                {/* <div className='logo'> */}
                 <img src={Logo} alt='rare-luxe' style={{
                   width: '59px',
                   height: '50px',
@@ -101,11 +122,10 @@ const ProductDetails = () => {
                 <Link className='userprofileactive' to={"/account"} onClick={openmenu1}>
                   <div className='usercontainer'>
                     <div className='usercontent'>
-                      <img src={userprofile} alt='user' className='userimg' />
+                      <img src={user} alt='user' className='userimg' />
                     </div>
                   </div>
                 </Link>
-                {/* </div> */}
                 <div className={
                   showmenus ? "Menu" : "Menu_active"
                 }>
@@ -129,9 +149,7 @@ const ProductDetails = () => {
                     cursor: "pointer"
                   }} />
                 </div>
-                {/* <div>
-                        <Link to='/login' className='Loginbutton'>Login</Link>
-                    </div> */}
+
                 <div className='account'>
                   <div className='notification'>
                     <img src={Notofication} alt='notification' className='account_img' />
@@ -152,9 +170,7 @@ const ProductDetails = () => {
                   <Link className='userprofile' to={"/account"}>
                     <div className='usercontainer'>
                       <div className='usercontent'>
-                        {
-                          image ? <img src={userprofile} alt='user' className='userimg' /> : <img src={user} alt='user' className='userimg' />
-                        }
+                        <img src={user} alt='user' className='userimg' />
                       </div>
                     </div>
                   </Link>
@@ -201,35 +217,74 @@ const ProductDetails = () => {
                     <img src={ratingimg} alt='ratingimg' />
                   </div>
                   <div className='ProductDetails_sizecontent'>
-                    {
-                      productsize.map((item, index) => (
-                        <div className={
-                          `${selectsize === item.sizeproduct ? 'ProductDetails_sizeactive' : 'ProductDetails_size'}`
-                        } key={index} onClick={() => handelselectsize(item.sizeproduct)}>
-                          <p>{item.sizeproduct}</p>
-                        </div>
-                      ))
-                    }
+
+                    <div className={
+                      `${selectsize === sm ? 'ProductDetails_sizeactive' : 'ProductDetails_size'}`
+                    } onClick={() => handelselectsize(sm)}>
+                      <p>{sm}</p>
+                    </div>
+                    <div className={
+                      `${selectsize === m ? 'ProductDetails_sizeactive' : 'ProductDetails_size'}`
+                    } onClick={() => handelselectsize(m)}>
+                      <p>{m}</p>
+                    </div>
+                    <div className={
+                      `${selectsize === l ? 'ProductDetails_sizeactive' : 'ProductDetails_size'}`
+                    } onClick={() => handelselectsize(l)}>
+                      <p>{l}</p>
+                    </div>
+                    <div className={
+                      `${selectsize === xl ? 'ProductDetails_sizeactive' : 'ProductDetails_size'}`
+                    } onClick={() => handelselectsize(xl)}>
+                      <p>{xl}</p>
+                    </div>
                   </div>
+                  <p className='productdetailssizename' onClick={(e) => showsizeinfo(e)}>view size chart</p>
                   <p className='ProductDetails_offer'>{offer} <Link>{offerproducts}</Link></p>
                   <div className='ProductDetailsbutton'>
                     {
                       loggedin ?
                         <>
-                          <div className='ProductDetailscartbtn' onClick={(e) => sendtocart({
-                            id: id,
-                            image: image,
-                            productname: productname,
-                            productsubname: productsubname,
-                            productprice: productprice,
-                            category: category,
-                            rating: rating
-                          })}>
-                            Add to cart
-                          </div>
-                          <div className='ProductDetailsbuybtn'>
-                            Buy Now
-                          </div>
+                          {
+                            selectsize ? <div className='ProductDetailscartbtn' onClick={(e) => sendtocart({
+                              id: id,
+                              image: image,
+                              productname: productname,
+                              productsubname: productsubname,
+                              productprice: productprice,
+                              category: category,
+                              rating: rating,
+                              sm: sm,
+                              m: m,
+                              l: l,
+                              xl: xl,
+                              selectsize: selectsize,
+                            })}>
+                              Add to cart
+                            </div> : <div className='ProductDetailscartdisablebtn'>
+                              Add to cart
+                            </div>
+                          }
+                          {
+                            selectsize ? <div className='ProductDetailsbuybtn' onClick={(e) => sendtocart({
+                              id: id,
+                              image: image,
+                              productname: productname,
+                              productsubname: productsubname,
+                              productprice: productprice,
+                              category: category,
+                              rating: rating,
+                              sm: sm,
+                              m: m,
+                              l: l,
+                              xl: xl,
+                              selectsize: selectsize,
+                            })}>
+                              Buy Now
+                            </div> : <div className='ProductDetailsbuydisablebtn'>
+                              Buy Now
+                            </div>
+                          }
                         </>
                         : <>
                           <div className='productbuybtn' style={{
@@ -240,22 +295,17 @@ const ProductDetails = () => {
                             Before purchase or add cart create an account!
                           </div>
                         </>
-
                     }
-
                   </div>
                 </div>
               </div>
-
               <div className='ProductDetailabout'>
                 <p className='ProductDetailabout_head'>About REPLAY</p>
-                <p className='ProductDetailabout_subp'>Replay, a premium denim and casualwear brand from Italy is known for innovative flair, characteristic Italian design and the superb quality of its denim . The brand brings to RARE and LUXE, its entire range of denims, casualwear, footwear and accessories for men and women.</p>
+                <p className='ProductDetailabout_subp'>Replay, a premium {productname} brand from Italy is known for innovative flair, characteristic Italian design and the superb quality of its denim . The brand brings to RARE and LUXE, its entire range of denims, casualwear, footwear and accessories for men and women.</p>
                 <p className='ProductDetailabout_subp'>Iconic, sexy, and practical. Replay Jeans are irreplaceable. Perfect for all situations and suitable for any of your style needs. Replay denim is a style guarantee and you can find your perfect style and fit on the RARE and LUXE. Replay jeans are like a second skin that compliment your lifestyle and your figure. From the most casual to the most glamorous looks, you can’t go wrong with denim.</p>
                 <p className='ProductDetailabout_subp'>The RARE and LUXE range also includes Replay’s signature capsule, the Hyperflex range of jeans which boasts of superior flexibility, recovery and comfort, making them perfect for today’s mobile lifestyle.</p>
                 <p className='ProductDetailabout_subp'>The Replay collection on RARE and LUXE also includes topwear, outwear, footwear and accessories for men and women that range from casual cool to glamourous chic, catering to the differing tastes and styles of our globe-trotting, trend-setting audience.</p>
               </div>
-
-
             </div>
           </div>
         </>
