@@ -14,9 +14,10 @@ import Closebar from "../assets/images/close menu.png"
 import "../assets/style/PersonalScreen.css"
 import user from "../assets/images/user.png"
 import { useDispatch, useSelector } from 'react-redux';
-import { addtocart } from '../redux/feature/CartProduct';
+import { addtocart, removefromcart, removelengthitem } from '../redux/feature/CartProduct';
 import size from "../assets/images/Your paragraph text.png"
 import cancelmenu2 from "../assets/images/close menu2.png"
+import Footer from '../Footer/Footer';
 
 const ProductDetails = () => {
   const dispatch = useDispatch();
@@ -82,6 +83,19 @@ const ProductDetails = () => {
   const [sizeinfo, setsizeinfo] = useState(false)
   const showsizeinfo = () => {
     setsizeinfo(!sizeinfo)
+  }
+  const incrementitemproduct = (e) => {
+    dispatch(addtocart(e))
+  }
+  const decrementitemproduct = (e) => {
+    dispatch(removefromcart(e))
+  }
+  const decrementsingleproduct = (e) => {
+    dispatch(removelengthitem(e))
+  }
+  const [showproducticon, setshowproducticon] = useState()
+  const opencart = () => {
+    setshowproducticon(!showproducticon)
   }
   return (
     <>
@@ -179,6 +193,44 @@ const ProductDetails = () => {
             </div> : <Navbar />
           }
           <div className='PrdouctDetailscontainer' id='ProductDetails'>
+            {
+              usercart.length ? <div className={
+                showproducticon ? "viewcartconatienractive" : 'viewcartconatienr'
+              }>
+                <div className='viewcartcontant'>
+                  <div className='closebtn' onClick={opencart}>
+                    <img src={Closebar} alt='menu' style={{
+                      width: '29px', cursor: "pointer"
+                    }} />
+                  </div>
+                  <p className='clearall'>clear all</p>
+                  {
+                    usercart.map((product, index) => {
+                      return (
+                        <div className='productcart' key={index}>
+                          <img src={product.image} />
+                          <div className='productcartdetailes'>
+                            <p className='productcartproductname'>{product.productname}</p>
+                            <p className='productcartprice'>{product.productprice}</p>
+                            {/* <p className='productcartquantity'>Quantity : {product.quantity}</p> */}
+                            <div className='productcartquantity'>
+                              <button onClick={
+                                product.quantity <= 1 ? () => decrementitemproduct(product.id) : () => decrementsingleproduct(product)
+                              }>-</button>
+                              <p className='productcartlength'>{product.quantity}</p>
+                              <button onClick={(e) => incrementitemproduct(product)}>+</button>
+                            </div>
+                          </div>
+                        </div>
+                      )
+                    })
+                  }
+                  <div className='viewall'>
+                    <Link className='productcartp' to={"/cart"}><p>view all</p></Link>
+                  </div>
+                </div>
+              </div> : null
+            }
             <div className='PrdouctDetailscontent'>
               <div className='ProductDetailstop'>
                 <div className='ProductDetailstopback'>
@@ -308,6 +360,7 @@ const ProductDetails = () => {
               </div>
             </div>
           </div>
+          <Footer />
         </>
       }
     </>
