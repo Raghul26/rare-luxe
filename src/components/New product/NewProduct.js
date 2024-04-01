@@ -8,23 +8,11 @@ import img3 from "../assets/images/img3.png"
 import img4 from "../assets/images/img4.png"
 import listproduct from "../assets/images/info.png"
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { addtocart, removefromcart, removelengthitem } from '../redux/feature/CartProduct';
-import Closebar from "../assets/images/close menu.png"
-import producticon from "../assets/images/cart.png"
 
-const NewProduct = ({ cartmessage }) => {
-    const { usercart } = useSelector((state) => state.cart)
+const NewProduct = () => {
     const productData = productlistdata;
-    const dispatch = useDispatch()
-    // console.log(cartdata);
-    // console.log(items);
     const [showimg, setshowimg] = useState(true)
     const [showlist, setshowlist] = useState(true)
-    const [showproducticon, setshowproducticon] = useState()
-    const opencart = () => {
-        setshowproducticon(!showproducticon)
-    }
     const [selectedlist, setselectedlist] = useState(productData)
     const showimg2 = () => {
         setshowimg(true)
@@ -42,18 +30,7 @@ const NewProduct = ({ cartmessage }) => {
         setselectedlist(result)
         setshowlist(!showlist)
     }
-    const sendtocart = (e) => {
-        dispatch(addtocart(e))
-    }
-    const incrementitemproduct = (e) => {
-        dispatch(addtocart(e))
-    }
-    const decrementitemproduct = (e) => {
-        dispatch(removefromcart(e))
-    }
-    const decrementsingleproduct = (e) => {
-        dispatch(removelengthitem(e))
-    }
+
     return (
         <div className='productcontainer'>
             <div className='productcontent'>
@@ -63,12 +40,6 @@ const NewProduct = ({ cartmessage }) => {
                         <p className='productsubp'>Our catalogue to relentless pursuit of the Finest in fashion accessories and lifestyle carefully handpicked to redefine luxury products</p>
                     </div>
                 </div>
-                {usercart.length ?
-                    <div className='showproducticon' onClick={opencart}>
-                        <img src={producticon} alt='showproducticon' />
-                        <p>{usercart.length}</p>
-                    </div> : null
-                }
 
 
 
@@ -110,44 +81,7 @@ const NewProduct = ({ cartmessage }) => {
                             </div>
                         </div>
                     </div>
-                    {
-                        usercart.length ? <div className={
-                            showproducticon ? "viewcartconatienractive" : 'viewcartconatienr'
-                        }>
-                            <div className='viewcartcontant'>
-                                <div className='closebtn' onClick={opencart}>
-                                    <img src={Closebar} alt='menu' style={{
-                                        width: '29px', cursor: "pointer"
-                                    }} />
-                                </div>
-                                <p className='clearall'>clear all</p>
-                                {
-                                    usercart.map((product, index) => {
-                                        return (
-                                            <div className='productcart' key={index}>
-                                                <img src={product.image} />
-                                                <div className='productcartdetailes'>
-                                                    <p className='productcartproductname'>{product.productname}</p>
-                                                    <p className='productcartprice'>{product.productprice}</p>
-                                                    {/* <p className='productcartquantity'>Quantity : {product.quantity}</p> */}
-                                                    <div className='productcartquantity'>
-                                                        <button onClick={
-                                                            product.quantity <= 1 ? () => decrementitemproduct(product.id) : () => decrementsingleproduct(product)
-                                                        }>-</button>
-                                                        <p className='productcartlength'>{product.quantity}</p>
-                                                        <button onClick={(e) => incrementitemproduct(product)}>+</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        )
-                                    })
-                                }
-                                <div className='viewall'>
-                                    <Link className='productcartp' to={"/cart"}><p>view all</p></Link>
-                                </div>
-                            </div>
-                        </div> : null
-                    }
+
                     <div className='productluxury'>
                         <div className='productcol'>
                             <div className='productcatgories'>
@@ -206,34 +140,6 @@ const NewProduct = ({ cartmessage }) => {
                                                                 <p>{product.productsubname}</p>
                                                             </div>
                                                         </div>
-                                                        {
-                                                            cartmessage ? <div style={{
-                                                                borderBottom: "1px dashed #7c7c7c7f",
-                                                                width: '90%',
-                                                                paddingTop: "9px",
-                                                                marginLeft: "12px",
-                                                                marginRight: "0px"
-                                                            }} /> : null
-                                                        }
-                                                        <div className='productbutton'>
-                                                            {
-                                                                cartmessage ? <>
-                                                                    <div className='productbuybtn' style={{
-                                                                        cursor: "default",
-                                                                        color: "#7C7C7C"
-                                                                    }}>
-                                                                        Before purchase or add cart create an account!
-                                                                    </div>
-                                                                </> : <>
-                                                                    <div className='productcartbtn' onClick={(e) => sendtocart(product)}>
-                                                                        Add to cart
-                                                                    </div>
-                                                                    <div className='productbuybtn'>
-                                                                        Buy Now
-                                                                    </div>
-                                                                </>
-                                                            }
-                                                        </div>
                                                     </div>
                                                 </div>
                                             )
@@ -258,8 +164,9 @@ const NewProduct = ({ cartmessage }) => {
                                                         </Link>
                                                         <div className='productname productname2'>
                                                             <div className='productimgp productimgp2'>
-                                                                <div className='productprice'>
+                                                                <div className='productprice productprice2'>
                                                                     <p>{product.productprice}</p>
+                                                                    <p className='oldproductprice2'>{product.oldproductprice}</p>
                                                                 </div>
                                                                 <p>{product.productname}</p>
                                                             </div>
@@ -267,14 +174,7 @@ const NewProduct = ({ cartmessage }) => {
                                                                 <p>{product.productsubname}</p>
                                                             </div>
                                                         </div>
-                                                        <div className='productbutton productbutton2'>
-                                                            <div className='productcartbtn' onClick={(e) => sendtocart(product)}>
-                                                                Add to cart
-                                                            </div>
-                                                            <div className='productbuybtn'>
-                                                                Buy Now
-                                                            </div>
-                                                        </div>
+                                                        
                                                     </div>
                                                 </div>
                                             )
