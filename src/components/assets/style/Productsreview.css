@@ -35,7 +35,7 @@
     padding: 12px;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: around;
     flex-direction: row !important;
     margin: 10px;
 }
@@ -97,11 +97,19 @@
         /* background-color: red; */
         position: absolute;
         left: 200% !important;
+        z-index: 90;
     }
 
     .react-multiple-carousel__arrow {
         position: absolute;
         top: 320px !important;
+        z-index: 90;
+    }
+
+    .react-multiple-carousel__arrow--right,
+    .react-multiple-carousel__arrow--left,
+    .react-multiple-carousel__arrow {
+        z-index: 90 !important;
     }
 }
 
