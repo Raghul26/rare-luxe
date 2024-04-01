@@ -16,6 +16,7 @@ import ScrollToTop from './components/ScrollTop.js';
 import { Provider } from 'react-redux';
 import { store } from './components/redux/app/store.js';
 import CartScreen from './components/CartScreen/CartScreen.js';
+import ErrorScreen from './components/ErrorScreen/ErrorScreen.js';
 
 const App = () => {
     const loggedin = window.localStorage.getItem("loggeduser")
@@ -29,11 +30,13 @@ const App = () => {
                             <Route path='/signup' element={<SignupScreen />} />
                             <Route path="/login" element={<LoginScreen />} />
                             <Route path='/ProductDetails/:productId' element={<ProductDetails />} />
+                            <Route path='*' element={<ErrorScreen />} />
                             <Route path='/' element={<Private />}>
                                 <Route path="/auth" element={<PersonalScreen />} />
                                 <Route path='/account' element={<AccountScreen />} />
                                 <Route path='/ProductDetails/:productId' element={<ProductDetails />} />
                                 <Route path='/cart' element={<CartScreen />} />
+                                <Route path='*' element={<ErrorScreen />} />
                             </Route>
                         </Routes>
                     </ScrollToTop>
