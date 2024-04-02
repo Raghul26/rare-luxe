@@ -24,6 +24,11 @@ const CartScreen = ({ id, image, productname, productsubname, rating, productpri
     const { usercart } = useSelector((state) => state.cart)
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const loggedin = window.localStorage.getItem("loggeduser")
+    const [useroffermessage] = useState(loggedin)
+    const userlogintime = window.localStorage.getItem("time");
+    const userlogindate = window.localStorage.getItem("date")
+    const username = JSON.parse(localStorage.getItem("user"));
     const [loading, setloading] = useState(false);
     useEffect(() => {
         setloading(true)
@@ -90,19 +95,16 @@ const CartScreen = ({ id, image, productname, productsubname, rating, productpri
         // alert(totalgstprice);
     }, [usercart])
 
-    const userlogintime = window.localStorage.getItem("time");
-    const userlogindate = window.localStorage.getItem("date")
-
-    const userprofile = window.localStorage.getItem("profile");
-    const username = JSON.parse(localStorage.getItem("user"));
     const [showusernotificationn, setshowusernotificationn] = useState(false)
 
     const shownotification = () => {
         setshowusernotificationn(!showusernotificationn)
     }
+    const [updatenotification, setupdatenotification] = useState(true)
+    const viewupdatenotification = () => {
+        setupdatenotification(false)
+    }
 
-    const loggedin = window.localStorage.getItem("loggeduser")
-    const [useroffermessage, setuseroffermessage] = useState(loggedin)
     return (
         <div>
             {
@@ -170,11 +172,56 @@ const CartScreen = ({ id, image, productname, productsubname, rating, productpri
                                             </div>
                                         </div> */}
 
-                                        <div className='cart notification_msg'>
+                                        <div className='cart notification notification_msg'>
                                             <img src={Notofication} alt='cart' className='account_img' onClick={shownotification} />
                                             <div className='notificationmsg' onClick={shownotification}>
-                                                {showusernotificationn + 1}
+                                                {
+                                                    useroffermessage ? <p>1</p> : <p>0</p>
+                                                }
                                             </div>
+                                            {
+                                                showusernotificationn ? <>
+                                                    <span className='useroffermessagecontainertop' />
+                                                    <div className='useroffermessagecontainer'>
+                                                        <div className='useroffermessagecontant'>
+                                                            <div className='useroffermessageuserinfo' onClick={viewupdatenotification}>
+                                                                <p className={updatenotification ? 'useroffermessagecontantindicatoractive' : 'useroffermessagecontantindicator'} />
+                                                                <div className='useroffermessageuserinforow'>
+                                                                    <div className='useroffermessageuserinfocol'>
+                                                                        <img src={user} alt='img' style={{
+                                                                            width: '40px',
+                                                                            height: '40px',
+                                                                            objectFit: "cover",
+                                                                            borderRadius: "50%"
+                                                                        }} />
+                                                                    </div>
+                                                                    <div className='useroffermessageuserinfocol'>
+                                                                        <div className='useroffermessageuserprow'>
+                                                                            <div className='useroffermessageuserpcol'>
+                                                                                <p className='useroffermessageuserpcolp'>Welcome, {username.username}</p>
+                                                                            </div>
+                                                                            <div className='useroffermessageuserpcol'>
+                                                                                <p className='useroffermessageuserpcolsubp'>to our rare & luxe, claim your 20% welcome discount on exclusive shirts etc... <Link style={{
+                                                                                    color: '#2962FF'
+                                                                                }}>click here</Link> to claim the discount.  Thankyou for connecting us!</p>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div className='useroffermessageusertimeanddate'>
+                                                                            <p>{userlogindate}</p>
+                                                                            <p>{userlogintime}</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                        <p className='useroffermessageuserinfoviewall'><Link style={{
+                                                            color: '#7C7C7C',
+                                                            textDecoration: 'none'
+                                                        }}>View all</Link></p>
+                                                    </div>
+                                                </> : null
+                                            }
                                         </div>
 
 
