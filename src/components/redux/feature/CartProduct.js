@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   usercart: [],
-  userorder: []
+  userfavourite: []
 }
 
 const CartProduct = createSlice({
@@ -32,10 +32,21 @@ const CartProduct = createSlice({
         state.usercart[removeitem].subtotal = state.usercart[removeitem].quantity * action.payload.productprice;
       }
     },
+    addtofavourite: (state, action) => {
+      // state.userfavourite = [...state.userfavourite, action.payload]
+      const itemfavindex = state.userfavourite.findIndex((state) => state.id === action.payload.id)
+
+      if (!itemfavindex) {
+        state.userfavourite[itemfavindex].quantity = 1
+      } else {
+        const temp = { ...action.payload }
+        state.userfavourite = [...state.userfavourite, temp]
+      }
+    }
   }
 })
 
 
 
-export const { addtocart, removefromcart, removelengthitem, total } = CartProduct.actions;
+export const { addtocart, removefromcart, removelengthitem, addtofavourite } = CartProduct.actions;
 export default CartProduct.reducer

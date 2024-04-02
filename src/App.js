@@ -17,6 +17,7 @@ import { Provider } from 'react-redux';
 import { store } from './components/redux/app/store.js';
 import CartScreen from './components/CartScreen/CartScreen.js';
 import ErrorScreen from './components/ErrorScreen/ErrorScreen.js';
+import FaviourtScreen from './components/FaviourtScreen/FaviourtScreen.js';
 
 const App = () => {
     const loggedin = window.localStorage.getItem("loggeduser")
@@ -36,6 +37,7 @@ const App = () => {
                                 <Route path='/account' element={<AccountScreen />} />
                                 <Route path='/ProductDetails/:productId' element={<ProductDetails />} />
                                 <Route path='/cart' element={<CartScreen />} />
+                                <Route path='/faviourt' element={<FaviourtScreen />} />
                                 <Route path='*' element={<ErrorScreen />} />
                             </Route>
                         </Routes>
