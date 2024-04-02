@@ -46,11 +46,14 @@ const CartProduct = createSlice({
     clearfavcart: (state, action) => {
       const removeindex = state.userfavourite.filter((state) => state.id !== action.payload.id)
       state.userfavourite = removeindex
+    },
+    allclearcart: (state) => {
+      state.userfavourite = []
     }
   }
 })
 
 
 
-export const { addtocart, removefromcart, removelengthitem, addtofavourite, clearfavcart } = CartProduct.actions;
+export const { addtocart, removefromcart, removelengthitem, addtofavourite, clearfavcart, allclearcart } = CartProduct.actions;
 export default CartProduct.reducer
