@@ -36,17 +36,21 @@ const CartProduct = createSlice({
       // state.userfavourite = [...state.userfavourite, action.payload]
       const itemfavindex = state.userfavourite.findIndex((state) => state.id === action.payload.id)
 
-      if (!itemfavindex) {
+      if (itemfavindex >= 0) {
         state.userfavourite[itemfavindex].quantity = 1
       } else {
         const temp = { ...action.payload }
         state.userfavourite = [...state.userfavourite, temp]
       }
+    },
+    clearfavcart: (state, action) => {
+      const removeindex = state.userfavourite.filter((state) => state.id !== action.payload.id)
+      state.userfavourite = removeindex
     }
   }
 })
 
 
 
-export const { addtocart, removefromcart, removelengthitem, addtofavourite } = CartProduct.actions;
+export const { addtocart, removefromcart, removelengthitem, addtofavourite, clearfavcart } = CartProduct.actions;
 export default CartProduct.reducer
