@@ -8,8 +8,12 @@ import img3 from "../assets/images/img3.png"
 import img4 from "../assets/images/img4.png"
 import listproduct from "../assets/images/info.png"
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addtofavourite } from '../redux/feature/CartProduct';
+import heart1 from "../assets/images/icons8-heart-90.png"
 
 const NewProduct = () => {
+    const dispatch = useDispatch()
     const productData = productlistdata;
     const [showimg, setshowimg] = useState(true)
     const [showlist, setshowlist] = useState(true)
@@ -29,6 +33,11 @@ const NewProduct = () => {
         })
         setselectedlist(result)
         setshowlist(!showlist)
+    }
+
+    const sendtofavourite = (e) => {
+        dispatch(addtofavourite(e))
+        // console.log(userfavourite, "userfavourite");
     }
 
     return (
@@ -53,20 +62,20 @@ const NewProduct = () => {
                                 }>
                                     <div className='product-listcatgories product-listcatgoriesactive'>
                                         <div className='productcatgoriesbtn'>
-                                            <input type="radio" className='productcatgoriesbutton' onClick={() => setselectedlist(productData)} />
-                                            <p>ALL</p>
+                                            <input type="radio" id="btn1" name='group' className='productcatgoriesbutton' onClick={() => setselectedlist(productData)} />
+                                            <label for="btn1">ALL</label>
                                         </div>
                                         <div className='productcatgoriesbtn'>
-                                            <input type="radio" className='productcatgoriesbutton' onClick={() => openuserlist("Men")} />
-                                            <p>MENS</p>
+                                            <input type="radio" id="btn2" name='group' className='productcatgoriesbutton' onClick={() => openuserlist("Men")} />
+                                            <label for="btn2">MENS</label>
                                         </div>
                                         <div className='productcatgoriesbtn'>
-                                            <input type="radio" className='productcatgoriesbutton' onClick={() => openuserlist("Women")} />
-                                            <p>WOMENS</p>
+                                            <input type="radio" id="btn3" name='group' className='productcatgoriesbutton' onClick={() => openuserlist("Women")} />
+                                            <label for="btn3">WOMENS</label>
                                         </div>
                                         <div className='productcatgoriesbtn'>
-                                            <input type="radio" className='productcatgoriesbutton' onClick={() => openuserlist(alert("No Beauty Products"))} />
-                                            <p>BEAUTY</p>
+                                            <input type="radio" id="btn4" name='group' className='productcatgoriesbutton' onClick={() => openuserlist(alert("No Beauty Products"))} />
+                                            <label for="btn4">BEAUTY</label>
                                         </div>
                                     </div>
                                 </div>
@@ -88,20 +97,20 @@ const NewProduct = () => {
                                 <p>ALL CATGORIES</p>
                                 <div className='product-listcatgories product-listcatgoriesactive'>
                                     <div className='productcatgoriesbtn'>
-                                        <input type="radio" id="btn1" name='group' className='productcatgoriesbutton' onClick={() => setselectedlist(productData)} />
-                                        <label for="btn1">All</label>
+                                        <input type="radio" id="btn5" name='group' className='productcatgoriesbutton' onClick={() => setselectedlist(productData)} />
+                                        <label for="btn5">All</label>
                                     </div>
                                     <div className='productcatgoriesbtn'>
-                                        <input type="radio" id="btn2" name='group' className='productcatgoriesbutton' onClick={() => openuserlist("Men")} />
-                                        <label for="btn2">MENS</label>
+                                        <input type="radio" id="btn6" name='group' className='productcatgoriesbutton' onClick={() => openuserlist("Men")} />
+                                        <label for="btn6">MENS</label>
                                     </div>
                                     <div className='productcatgoriesbtn'>
-                                        <input type="radio" id="btn3" name='group' className='productcatgoriesbutton' onClick={() => openuserlist("Women")} />
-                                        <label for="btn3">WOMENS</label>
+                                        <input type="radio" id="btn7" name='group' className='productcatgoriesbutton' onClick={() => openuserlist("Women")} />
+                                        <label for="btn7">WOMENS</label>
                                     </div>
                                     <div className='productcatgoriesbtn'>
-                                        <input type="radio" id="btn4" name='group' className='productcatgoriesbutton' onClick={() => openuserlist(alert("No Beauty Products"))} />
-                                        <label for="btn4">BEAUTY</label>
+                                        <input type="radio" id="btn8" name='group' className='productcatgoriesbutton' onClick={() => openuserlist(alert("No Beauty Products"))} />
+                                        <label for="btn8">BEAUTY</label>
                                     </div>
                                 </div>
                             </div>
@@ -120,14 +129,23 @@ const NewProduct = () => {
                                                             textDecoration: 'none'
                                                         }} className='productimg'>
                                                             <img src={product.image} />
-                                                            <div className='productimgicon'>
-                                                                <img src={heart} alt='heart' />
-                                                            </div>
+
+
+
+                                                            <Link onClick={(e) => sendtofavourite(product, e)}>
+                                                                <div className='productimgicon'>
+                                                                    <img src={heart} alt='heart' />
+                                                                </div>
+                                                            </Link>
+
+
+
+
                                                         </Link>
                                                         <div className='productname'>
                                                             <div className='productoldnewprice'>
                                                                 <div className='productprice'>
-                                                                    <p>{product.productprice}</p>
+                                                                    <p>Rs : {product.productprice}</p>
                                                                 </div>
                                                                 <div className='oldproductprice'>
                                                                     <p>{product.oldproductprice}</p>
@@ -158,9 +176,18 @@ const NewProduct = () => {
                                                             textDecoration: 'none'
                                                         }} className='productimg productimg2'>
                                                             <img src={product.image} />
-                                                            <div className='productimgicon productimgicon2'>
-                                                                <img src={heart} alt='heart' />
-                                                            </div>
+                                                            {/* <Link to={'/'} onClick={(e) => sendtofavourite(product)}>
+                                                                <div className='productimgicon'>
+                                                                    <img src={heart} alt='heart' />
+                                                                </div>
+                                                            </Link> */}
+
+                                                            <Link onClick={(e) => sendtofavourite(product, e)}>
+                                                                <div className='productimgicon'>
+                                                                    <img src={heart} alt='heart' />
+                                                                </div>
+                                                            </Link>
+
                                                         </Link>
                                                         <div className='productname productname2'>
                                                             <div className='productimgp productimgp2'>
@@ -174,7 +201,7 @@ const NewProduct = () => {
                                                                 <p>{product.productsubname}</p>
                                                             </div>
                                                         </div>
-                                                        
+
                                                     </div>
                                                 </div>
                                             )
