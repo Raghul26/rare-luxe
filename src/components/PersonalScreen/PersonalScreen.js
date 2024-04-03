@@ -22,16 +22,15 @@ import Newsletter from '../Newsletter/Newsletter'
 import Footer from '../Footer/Footer'
 import loadinglogo from "../assets/images/logo.png"
 import { useSelector } from 'react-redux';
+import Scrolltop from '../Scrolltop/Scrolltop';
 
 const PersonalScreen = () => {
 
     const userlogintime = window.localStorage.getItem("time");
     const userlogindate = window.localStorage.getItem("date")
-
-    const userprofile = window.localStorage.getItem("profile");
     const username = JSON.parse(localStorage.getItem("user"));
     const loggedin = window.localStorage.getItem("loggeduser")
-    const [useroffermessage, setuseroffermessage] = useState(loggedin)
+    const [useroffermessage] = useState(loggedin)
     const [showmenus, setshowmenus] = useState(true);
     const { usercart } = useSelector((state) => state.cart)
     const openmenu = () => {
@@ -63,8 +62,8 @@ const PersonalScreen = () => {
     const [updatenotification, setupdatenotification] = useState(true)
     const viewupdatenotification = () => {
         setupdatenotification(false)
-        window.localStorage.setItem("userfirstnotification", true)
     }
+    const { userfavourite } = useSelector((state) => state.cart)
 
     return (
         <div>
@@ -144,19 +143,12 @@ const PersonalScreen = () => {
                                                         <p className={updatenotification ? 'useroffermessagecontantindicatoractive' : 'useroffermessagecontantindicator'} />
                                                         <div className='useroffermessageuserinforow'>
                                                             <div className='useroffermessageuserinfocol'>
-                                                                {userprofile ?
-                                                                    <img src={user} alt='img' style={{
-                                                                        width: '40px',
-                                                                        height: '40px',
-                                                                        objectFit: "cover",
-                                                                        borderRadius: "50%"
-                                                                    }} /> : <img src={userprofile} alt='img' style={{
-                                                                        width: '40px',
-                                                                        height: '40px',
-                                                                        objectFit: "cover",
-                                                                        borderRadius: "50%"
-                                                                    }} />
-                                                                }
+                                                                <img src={user} alt='img' style={{
+                                                                    width: '40px',
+                                                                    height: '40px',
+                                                                    objectFit: "cover",
+                                                                    borderRadius: "50%"
+                                                                }} />
                                                             </div>
                                                             <div className='useroffermessageuserinfocol'>
                                                                 <div className='useroffermessageuserprow'>
@@ -186,9 +178,25 @@ const PersonalScreen = () => {
                                         </> : null
                                     }
                                 </div>
-                                <div className='favourite'>
-                                    <img src={Favourite} alt='favourite' className='account_img' />
+
+                                <div className='cart notification_msg'>
+                                    {
+                                        userfavourite ? <Link to="/faviourt">
+                                            <img src={Favourite} alt='cart' className='account_img' />
+                                            <div className='notificationmsg'>
+                                                <p>{userfavourite.length}</p>
+                                            </div>
+                                        </Link> : <Link to="/faviourt">
+                                            <img src={Favourite} alt='cart' className='account_img' />
+                                        </Link>
+                                    }
                                 </div>
+
+
+
+
+
+
                                 <div className='cart notification_msg'>
                                     <Link to="/cart">
                                         <img src={Cart} alt='cart' className='account_img' />
@@ -223,6 +231,7 @@ const PersonalScreen = () => {
                             <p>rare and luxe offer</p>
                         </div> : null
                     } */}
+                    <Scrolltop />
                     <div>
                         <PopularProduct />
                         <ExclusiveScreen />
