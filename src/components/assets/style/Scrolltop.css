@@ -1,0 +1,33 @@
+.Scrolltopcontainer {
+               padding: 90px 70px;
+               position: fixed;
+               bottom: 0;
+               right: 0;
+               z-index: 95;
+}
+
+.Scrolltopcontant {
+               float: right;
+               background-color: var(--button-color);
+               padding: 9px;
+               cursor: pointer;
+               box-shadow: 0 9px 19px 1px #1d1c138d;
+}
+
+.Scrolltopcontant>img {
+               transform: rotate(270deg);
+               width: 30px;
+               height: 30px;
+}
+
+@media (min-width:200px) and (max-width:880px) {
+               .Scrolltopcontainer {
+                              padding: 19px 20px;
+               }
+
+               .Scrolltopcontant>img {
+                              transform: rotate(270deg);
+                              width: 19px;
+                              height: 19px;
+               }
+}
