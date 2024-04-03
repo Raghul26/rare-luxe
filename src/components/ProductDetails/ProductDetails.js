@@ -22,11 +22,16 @@ import Footer from '../Footer/Footer';
 const ProductDetails = () => {
   const dispatch = useDispatch();
   const { usercart } = useSelector((state) => state.cart)
+  const { userfavourite } = useSelector((state) => state.cart)
   const [showmenus, setshowmenus] = useState(true);
   const [showmenus1, setshowmenus1] = useState(true);
   const [openlist, setopenlist] = useState(true);
   const [openlist1, setopenlist1] = useState(true);
   const loggedin = window.localStorage.getItem("loggeduser")
+  const [useroffermessage] = useState(loggedin)
+  const userlogintime = window.localStorage.getItem("time");
+  const userlogindate = window.localStorage.getItem("date")
+  const username = JSON.parse(localStorage.getItem("user"));
 
   const openmenu = () => {
     setshowmenus(!showmenus)
@@ -40,24 +45,24 @@ const ProductDetails = () => {
   const openinfo1 = () => {
     setopenlist1(!openlist1)
   }
-  const productsize = [
-    {
-      id: 0,
-      sizeproduct: "S",
-    },
-    {
-      id: 1,
-      sizeproduct: "M",
-    },
-    {
-      id: 2,
-      sizeproduct: "L"
-    },
-    {
-      id: 3,
-      sizeproduct: "XL"
-    }
-  ]
+  // const productsize = [
+  //   {
+  //     id: 0,
+  //     sizeproduct: "S",
+  //   },
+  //   {
+  //     id: 1,
+  //     sizeproduct: "M",
+  //   },
+  //   {
+  //     id: 2,
+  //     sizeproduct: "L"
+  //   },
+  //   {
+  //     id: 3,
+  //     sizeproduct: "XL"
+  //   }
+  // ]
   // console.log(useParams());
   const { productId } = useParams()
   const product = productlistdata.find((product) => product.id === productId)
@@ -96,6 +101,10 @@ const ProductDetails = () => {
   const [showproducticon, setshowproducticon] = useState()
   const opencart = () => {
     setshowproducticon(!showproducticon)
+  }
+  const [updatenotification, setupdatenotification] = useState(true)
+  const viewupdatenotification = () => {
+    setupdatenotification(false)
   }
   return (
     <>
@@ -165,12 +174,74 @@ const ProductDetails = () => {
                 </div>
 
                 <div className='account'>
-                  <div className='notification'>
-                    <img src={Notofication} alt='notification' className='account_img' />
+                  {/* <div className='notification'>
+                                    <img src={Notofication} alt='notification' className='account_img' />
+                                </div> */}
+                  <div className='cart notification notification_msg'>
+                    <img src={Notofication} alt='cart' className='account_img' onClick={shownotification} />
+                    <div className='notificationmsg' onClick={shownotification}>
+                      {
+                        useroffermessage ? <p>1</p> : <p>0</p>
+                      }
+                    </div>
+                    {
+                      showusernotificationn ? <>
+                        <span className='useroffermessagecontainertop' />
+                        <div className='useroffermessagecontainer'>
+                          <div className='useroffermessagecontant'>
+                            <div className='useroffermessageuserinfo' onClick={viewupdatenotification}>
+                              <p className={updatenotification ? 'useroffermessagecontantindicatoractive' : 'useroffermessagecontantindicator'} />
+                              <div className='useroffermessageuserinforow'>
+                                <div className='useroffermessageuserinfocol'>
+                                  <img src={user} alt='img' style={{
+                                    width: '40px',
+                                    height: '40px',
+                                    objectFit: "cover",
+                                    borderRadius: "50%"
+                                  }} />
+                                </div>
+                                <div className='useroffermessageuserinfocol'>
+                                  <div className='useroffermessageuserprow'>
+                                    <div className='useroffermessageuserpcol'>
+                                      <p className='useroffermessageuserpcolp'>Welcome, {username.username}</p>
+                                    </div>
+                                    <div className='useroffermessageuserpcol'>
+                                      <p className='useroffermessageuserpcolsubp'>to our rare & luxe, claim your 20% welcome discount on exclusive shirts etc... <Link style={{
+                                        color: '#2962FF'
+                                      }}>click here</Link> to claim the discount.  Thankyou for connecting us!</p>
+                                    </div>
+                                  </div>
+                                  <div className='useroffermessageusertimeanddate'>
+                                    <p>{userlogindate}</p>
+                                    <p>{userlogintime}</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                          </div>
+                          <p className='useroffermessageuserinfoviewall'><Link style={{
+                            color: '#7C7C7C',
+                            textDecoration: 'none'
+                          }}>View all</Link></p>
+                        </div>
+                      </> : null
+                    }
                   </div>
-                  <div className='favourite'>
-                    <img src={Favourite} alt='favourite' className='account_img' />
+
+                  <div className='cart notification_msg'>
+                    {
+                      userfavourite ? <Link to="/faviourt">
+                        <img src={Favourite} alt='cart' className='account_img' />
+                        <div className='notificationmsg'>
+                          <p>{userfavourite.length}</p>
+                        </div>
+                      </Link> : <Link to="/faviourt">
+                        <img src={Favourite} alt='cart' className='account_img' />
+                      </Link>
+                    }
                   </div>
+
                   <div className='cart notification_msg'>
                     <Link to="/cart">
                       <img src={Cart} alt='cart' className='account_img' />
@@ -262,6 +333,7 @@ const ProductDetails = () => {
                 <div className='ProductDetails_sub'>
                   <div className='ProductDetails_brname'>
                     <p className='productdetailsname'>{productname}</p>
+                    <p className='productdetailproductprice'>Rs : {productprice}</p>
                     <p className='productdetailsubname'>{productsubname}</p>
                   </div>
                   <div className='ProductDetails_ratings'>
@@ -269,30 +341,56 @@ const ProductDetails = () => {
                     <img src={ratingimg} alt='ratingimg' />
                   </div>
                   <div className='ProductDetails_sizecontent'>
-
-                    <div className={
-                      `${selectsize === sm ? 'ProductDetails_sizeactive' : 'ProductDetails_size'}`
-                    } onClick={() => handelselectsize(sm)}>
-                      <p>{sm}</p>
-                    </div>
-                    <div className={
-                      `${selectsize === m ? 'ProductDetails_sizeactive' : 'ProductDetails_size'}`
-                    } onClick={() => handelselectsize(m)}>
-                      <p>{m}</p>
-                    </div>
-                    <div className={
-                      `${selectsize === l ? 'ProductDetails_sizeactive' : 'ProductDetails_size'}`
-                    } onClick={() => handelselectsize(l)}>
-                      <p>{l}</p>
-                    </div>
-                    <div className={
-                      `${selectsize === xl ? 'ProductDetails_sizeactive' : 'ProductDetails_size'}`
-                    } onClick={() => handelselectsize(xl)}>
-                      <p>{xl}</p>
-                    </div>
+                    {
+                      loggedin ? <>
+                        <div className={
+                          `${selectsize === sm ? 'ProductDetails_sizeactive' : 'ProductDetails_size'}`
+                        } onClick={() => handelselectsize(sm)}>
+                          <p>{sm}</p>
+                        </div>
+                        <div className={
+                          `${selectsize === m ? 'ProductDetails_sizeactive' : 'ProductDetails_size'}`
+                        } onClick={() => handelselectsize(m)}>
+                          <p>{m}</p>
+                        </div>
+                        <div className={
+                          `${selectsize === l ? 'ProductDetails_sizeactive' : 'ProductDetails_size'}`
+                        } onClick={() => handelselectsize(l)}>
+                          <p>{l}</p>
+                        </div>
+                        <div className={
+                          `${selectsize === xl ? 'ProductDetails_sizeactive' : 'ProductDetails_size'}`
+                        } onClick={() => handelselectsize(xl)}>
+                          <p>{xl}</p>
+                        </div>
+                      </> : <>
+                        <div className="ProductDetails_size" onClick={() => handelselectsize(sm)} style={{
+                          cursor: "not-allowed"
+                        }}>
+                          <p>{sm}</p>
+                        </div>
+                        <div className="ProductDetails_size" onClick={() => handelselectsize(m)} style={{
+                          cursor: "not-allowed"
+                        }}>
+                          <p>{m}</p>
+                        </div>
+                        <div className="ProductDetails_size" onClick={() => handelselectsize(l)} style={{
+                          cursor: "not-allowed"
+                        }}>
+                          <p>{l}</p>
+                        </div>
+                        <div className="ProductDetails_size" onClick={() => handelselectsize(xl)} style={{
+                          cursor: "not-allowed"
+                        }}>
+                          <p>{xl}</p>
+                        </div>
+                      </>
+                    }
                   </div>
                   <p className='productdetailssizename' onClick={(e) => showsizeinfo(e)}>view size chart</p>
-                  <p className='ProductDetails_offer'>{offer} <Link>{offerproducts}</Link></p>
+                  {
+                    loggedin ? <p className='ProductDetails_offer'>{offer} <Link>{offerproducts}</Link></p> : <p className='ProductDetails_offer'>Create account to get 25% Off On Rs.3990 & Above. Max Discount Rs. 1500. <Link>{offerproducts}</Link></p>
+                  }
                   <div className='ProductDetailsbutton'>
                     {
                       loggedin ?
@@ -344,7 +442,7 @@ const ProductDetails = () => {
                             color: "#7C7C7C",
                             width: '190px'
                           }}>
-                            Before purchase or add cart create an account!
+                            Before purchase create an account!
                           </div>
                         </>
                     }
