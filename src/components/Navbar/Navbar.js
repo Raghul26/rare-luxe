@@ -45,13 +45,13 @@ const Navbar = () => {
                         <Link to="/" className='linkmenu'>HOME</Link>
                     </div>
                     <div className='Menu_Link'>
-                        <Link to="/" className='linkmenu'>MEN</Link>
+                        <Link to="/" className='linkmenu'>HOME</Link>
                     </div>
                     <div className='Menu_Link'>
-                        <Link to="/" className='linkmenu'>WOMEN</Link>
+                        <Link to="/" className='linkmenu'>HOME</Link>
                     </div>
                     <div className='Menu_Link'>
-                        <Link to="/" className='linkmenu'>BEAUTY</Link>
+                        <Link to="/" className='linkmenu'>HOME</Link>
                     </div>
                     <div className='Menu_Link'>
                         <Link to='/Signup' className='Loginbutton'>Signup</Link>
