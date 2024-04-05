@@ -20,9 +20,7 @@ const FaviourtScreen = () => {
   const dispatch = useDispatch()
   const { userfavourite } = useSelector((state) => state.cart)
   console.log(userfavourite, "added to favourite");
-  // const clearfavcart = (e) => {
-  //   dispatch(clearfavcart(e))
-  // }
+  
   const removefavitem = (faviourt) => {
     dispatch(clearfavcart(faviourt))
   }
@@ -37,13 +35,7 @@ const FaviourtScreen = () => {
   const openmenu = () => {
     setshowmenus(!showmenus)
   }
-  // const userprofile = localStorage.getItem("profile");
-  // const navigate = useNavigate();
-  // const username = JSON.parse(localStorage.getItem("user"));
-  // function logout() {
-  //     localStorage.removeItem("loggeduser")
-  //     navigate("/login")
-  // }
+  
   const [loading, setloading] = useState(false);
   useEffect(() => {
     setloading(true)
@@ -51,10 +43,7 @@ const FaviourtScreen = () => {
       setloading(false)
     }, 1200);
   }, [])
-  // const userofferbtn = () => {
-  //     setuseroffermessage(false)
-  //     window.localStorage.setItem("setuseroffermessage", true)
-  // }
+  
   const [showusernotificationn, setshowusernotificationn] = useState(false)
   const shownotification = () => {
     setshowusernotificationn(!showusernotificationn)
