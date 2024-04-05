@@ -232,6 +232,14 @@ const AccountScreen = () => {
                                                 textDecoration: 'none'
                                             }}>Personal Information</Link></p>
                                             <p>Payment</p>
+                                            <p>
+                                                <Link to={'/faviourt'} style={{
+                                                    color: '#7C7C7C',
+                                                    fontWeight: '500',
+                                                    listStyleType: 'none',
+                                                    textDecoration: 'none'
+                                                }}>Faviourt</Link>
+                                            </p>
                                         </div>
                                     </div>
                                     <div>
@@ -286,6 +294,14 @@ const AccountScreen = () => {
                                                         textDecoration: 'none'
                                                     }}>Personal Information</Link></p>
                                                     <p>Payment</p>
+                                                    <p>
+                                                        <Link to={'/faviourt'} style={{
+                                                            color: '#7C7C7C',
+                                                            fontWeight: '500',
+                                                            listStyleType: 'none',
+                                                            textDecoration: 'none'
+                                                        }}>Faviourt</Link>
+                                                    </p>
                                                 </div>
                                             </div>
                                         </div>

@@ -12,6 +12,7 @@ import Productpromos from "../Productpromos/Productpromos"
 import Productapp from '../Productapp/Productapp';
 import Newsletter from '../Newsletter/Newsletter';
 import Footer from '../Footer/Footer';
+import Scrolltop from '../Scrolltop/Scrolltop';
 
 const HomeScreen = () => {
     const loggedin = window.localStorage.getItem("loggeduser")
@@ -39,6 +40,7 @@ const HomeScreen = () => {
                             <img src={OfferImage2} className='img2' alt='offer_img' />
                         </div>
                     </div>
+                    <Scrolltop />
                     <div>
                         <PopularProduct />
                         <ExclusiveScreen />

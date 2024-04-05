@@ -115,6 +115,20 @@
     rotate: -7.82deg;
 }
 
+.notification_msgnotlogin_msg {
+    position: absolute;
+    bottom: -44px;
+    background-color: var(--navbar-color);
+    padding: 9px 12px;
+    z-index: 100 !important;
+    color: var(--text-color);
+    font-family: var(--subtext);
+}
+
+.notification_msgnotlogin {
+    /* background-color: red; */
+}
+
 @media (min-width:250px) and (max-width:470px) {
 
     /* .Loginbutton {

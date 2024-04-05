@@ -310,7 +310,8 @@
 }
 
 @media (min-width:385px) and (max-width:665px) {
-    .productimgicon>img {
+
+    .productimgicon2>img {
         width: 25px;
         height: 25px;
         position: absolute;

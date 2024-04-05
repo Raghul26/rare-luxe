@@ -11,7 +11,8 @@
                background-color: var(--button-color);
                padding: 9px;
                cursor: pointer;
-               box-shadow: 0 9px 19px 1px #1d1c138d;
+               /* box-shadow: 0 9px 19px 1px #1d1c138d; */
+               box-shadow: rgba(99, 99, 99, 0.9) 0px 2px 8px 0px;
 }
 
 .Scrolltopcontant>img {

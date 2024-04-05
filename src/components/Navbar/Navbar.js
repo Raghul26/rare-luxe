@@ -16,6 +16,8 @@ const Navbar = () => {
     const openmenu = () => {
         setshowmenus(!showmenus)
     }
+    const [shownoneusermsg, setshownoneusermsg] = useState(false)
+    
     return (
         <div className='Container'>
             <div className='Navbarhead'>
@@ -62,40 +64,33 @@ const Navbar = () => {
                         cursor: "pointer"
                     }} />
                 </div>
-                {/* <div className='useraccount'>
-                    <Link to='/account'>user</Link>
-                </div> */}
-                {/* <div>
-                    <Link to='/login' className='Loginbutton'>Login</Link>
-                </div> */}
+
                 <div className='account'>
                     <div className='notification'>
-                        <div className='notification_msg'>
+                        <div className='notification_msg notification_msgnotlogin'>
                             <img src={Notofication} alt='notification' className='account_img' />
-                            {/* <div className='notificationmsg'>
-                                <p>0</p>
-                            </div> */}
                         </div>
+                        {
+                            shownoneusermsg && (
+                                <div className='notification_msgnotlogin_msg'>
+                                    <p>
+                                        Please create an account!
+                                    </p>
+                                </div>
+                            )
+                        }
                     </div>
                     <div className='favourite'>
                         <img src={Favourite} alt='favourite' className='account_img' />
                     </div>
                     <div className='cart'>
                         <div className='notification_msg'>
-                            {/* <Link to="/cart">
-                                <img src={Cart} alt='cart' className='account_img' />
-                                <div className='notificationmsg'>
-                                    {
-                                        usercart ? <p>{usercart.length}</p> : <p>0</p>
-                                    }
-                                </div>
-                            </Link> */}
+
                             <div className='notification_msg'>
                                 <img src={Cart} alt='cart' className='account_img' />
-                                {/* <div className='notificationmsg'>
-                                <p>0</p>
-                            </div> */}
+
                             </div>
+
                         </div>
                     </div>
                     <Link to='/Signup' className='Login_button button'>Signup</Link>

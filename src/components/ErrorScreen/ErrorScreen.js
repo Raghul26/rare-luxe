@@ -9,7 +9,7 @@ const ErrorScreen = () => {
       width: '100%',
       height: '100vh'
     }}>
-      <p>404 page not founded</p>
+      <p>Oops, we can't find the page you are looking for...</p>
     </div>
   )
 }

@@ -98,6 +98,16 @@
     width: max-content;
 }
 
+.productdetailproductprice {
+    font-family: var(--subtext);
+    /* font-size: 17px; */
+    color: var(--text-color);
+    padding-bottom: 12px;
+    font-weight: 500;
+    letter-spacing: 0.40px;
+    padding-right: 9px;
+}
+
 .ProductDetails_ratings {
     display: flex;
     align-items: center;
