@@ -1,10 +1,11 @@
+import product3 from "../assets/images/3.jpg";
 import product2 from "../assets/images/2.jpg";
 import product1 from "../assets/images/1.jpg"
 
 export default [
     {
         id: "0",
-        image: product2,
+        image: product3,
         name: "EMPORIO ARMANI",
         sublist: "Travel Essential Blended Regular Fit Blazer"
     },
