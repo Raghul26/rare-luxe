@@ -1,6 +1,10 @@
 import React from 'react'
 import "../assets/style/Productsreview.css"
-import img from "../assets/images/1.jpg"
+import reivew1 from "../assets/images/review1.jpg"
+import reivew2 from "../assets/images/review2.jpg"
+import reivew3 from "../assets/images/review3.jpg"
+import reivew4 from "../assets/images/review4.jpg"
+import reivew5 from "../assets/images/review5.jpg"
 import rating from "../assets/images/icons8-rating-96.png"
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
@@ -10,49 +14,59 @@ const Productsreview = () => {
         superLargeDesktop: {
             // the naming can be any, depends on you.
             breakpoint: { max: 4000, min: 3000 },
-            items: 5
+            items: 4
         },
         desktop: {
             breakpoint: { max: 3000, min: 1024 },
-            items: 3
+            items: 3,
         },
         tablet: {
             breakpoint: { max: 1024, min: 464 },
-            items: 2
+            items: 2,
         },
         mobile: {
-            breakpoint: { max: 464, min: 0 },
-            items: 1
+            breakpoint: { max: 464, min: 300 },
+            items: 1,
         }
     };
     const productreview = [
         {
-            id: '1',
+            id: 1,
+            image: reivew1,
             productreviewname: 'ALFREDO LEVIN',
-            productrevieratings: 'Ratings 4.5',
-            productreviep: 'I recently purchased an outfit from rare and luxe.'
+            productrevieuserpalce: '1 weeks ago',
+            productrevieratings: 'Ratings 4',
+            productreviep: 'The fit was great and the quality was top-notch. The customer service was also excellent; the staff was very friendly and helpful. Highly recommend this store for all your fashion needs, rare and luxe Thankyou! 😍'
         },
         {
-            id: '2',
+            id: 2,
+            image: reivew2,
             productreviewname: 'Craig Bator',
+            productrevieuserpalce: '4 days ago',
             productrevieratings: 'Ratings 4.5',
             productreviep: 'I recently purchased a dress and I am absolutely in love with it! The fabric is soft and comfortable and the design is so unique and stylish.'
         },
         {
-            id: '3',
+            id: 3,
+            image: reivew3,
             productreviewname: 'Alena Mango',
+            productrevieuserpalce: '2 weeks ago',
             productrevieratings: 'Ratings 4.5',
             productreviep: 'The fit was great and the quality was top-notch. The customer service was also excellent; the staff was very friendly and helpful. Highly recommend this store for all your fashion needs!'
         },
         {
-            id: '4',
+            id: 4,
+            image: reivew4,
             productreviewname: 'Alena Mango',
+            productrevieuserpalce: '2 weeks ago',
             productrevieratings: 'Ratings 4.5',
-            productreviep: 'The fit was great and the quality was top-notch. The customer service was also excellent; the staff was very friendly and helpful. Highly recommend this store for all your fashion needs!'
+            productreviep: 'The quality was top-notch. The customer service was also excellent; the staff was very friendly and helpful. Highly recommend this store for all your fashion needs! 😍'
         },
         {
-            id: '5',
+            id: 5,
+            image: reivew5,
             productreviewname: 'Alena Mango',
+            productrevieuserpalce: '2 weeks ago',
             productrevieratings: 'Ratings 4.5',
             productreviep: 'The fit was great and the quality was top-notch. The customer service was also excellent; the staff was very friendly and helpful. Highly recommend this store for all your fashion needs!'
         }
@@ -73,9 +87,10 @@ const Productsreview = () => {
                             <div className='productreviewcolumn' key={index}>
                                 <div className='productreviews'>
                                     <div className='productreviewtop'>
-                                        <img src={img} alt='' />
+                                        <img src={productreviewitem.image} alt='' />
                                         <div>
                                             <p className='productreviewtopname'>{productreviewitem.productreviewname}</p>
+                                            <p className='productreviewtopsubname'>{productreviewitem.productrevieuserpalce}</p>
                                         </div>
                                     </div>
                                     <div className='productreviewratings'>
