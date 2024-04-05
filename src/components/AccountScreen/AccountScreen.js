@@ -17,6 +17,7 @@ import info from "../assets/images/info.png"
 import Accountvalidatoin from "../Validation/Accountvalidation";
 import { useSelector } from 'react-redux'
 import loadinglogo from "../assets/images/logo.png"
+import infoaccount from "../assets/images/info account.png"
 
 const AccountScreen = () => {
     const [showmenus, setshowmenus] = useState(true);
@@ -285,7 +286,9 @@ const AccountScreen = () => {
                                                     justifyContent: "space-between"
                                                 }} onClick={openinfo1}>
                                                     <p className='information_listorder'>Profile</p>
-                                                    <img src={info} alt='option' className={openlist1 ? "infolist1" : 'infolist_active1'} />
+                                                    <img src={
+                                                        openlist1 ? info : infoaccount
+                                                    } alt='option' className={openlist1 ? "infolist1" : 'infolist_active1'} />
                                                 </div>
                                                 <div className='information_sublist'>
                                                     <p className='information_sublisthead'><Link style={{
@@ -318,7 +321,10 @@ const AccountScreen = () => {
                                                     justifyContent: "space-between"
                                                 }} onClick={openinfo}>
                                                     <p className='information_listorder'>Order & Credits</p>
-                                                    <img src={info} alt='option' className={openlist ? "infolist" : 'infolist_active'} />
+                                                    {/* <img src={info} alt='option' className={openlist ? "infolist" : 'infolist_active'} /> */}
+                                                    <img src={
+                                                        openlist ? info : infoaccount
+                                                    } alt='option' className={openlist ? "infolist" : 'infolist_active'} />
                                                 </div>
                                                 <div className='information_sublist'>
                                                     <p><Link to={"/cart"} style={{
