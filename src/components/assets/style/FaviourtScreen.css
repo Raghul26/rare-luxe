@@ -8,9 +8,10 @@
 
 .favouritecontainerow {
                display: flex;
-               align-items: center;
+               align-items: flex-start;
                justify-content: flex-start;
                flex-wrap: wrap;
+               /* flex-direction: column; */
                width: 100%;
                padding: 9px;
 }
@@ -20,17 +21,13 @@
                padding: 0 19px;
 }
 
-.productdetails>img {
+.productdetailsimage>img {
                object-fit: cover;
                aspect-ratio: 3/3;
                height: 270px;
 }
 
 .favouriteproudctno {
-               /* display: flex;
-               align-items: center;
-               justify-content: center;
-               flex-direction: column; */
                text-align: center;
 }
 
@@ -47,6 +44,39 @@
                color: rgba(124, 124, 124, 0.4);
 }
 
+.favouritecontainerbutton {
+               padding-bottom: 19px;
+               width: 100%;
+}
+
+.favouritecontainerbtn {
+               margin-left: 21px;
+               background-color: var(--button-color);
+               width: 160px;
+               height: 35px;
+               font-weight: 400;
+               font-size: 16px;
+               letter-spacing: 0.54px;
+               font-family: var(--subtext);
+               cursor: pointer;
+               color: var(--button-text-color);
+               outline: none;
+               border: none;
+}
+
+.productdetailsimage {
+               position: relative;
+}
+
+.productdetailsheartimg>img {
+               width: 29px;
+               height: 29px;
+               position: absolute;
+               top: 9px;
+               right: 21px;
+               cursor: pointer;
+}
+
 @media (min-width:250px) and (max-width:790px) {
                .favouritecontainer {
                               padding-top: 60px;
@@ -57,18 +87,18 @@
                               display: flex;
                               align-items: center;
                               justify-content: flex-start;
-                              /* width: 100%; */
+                              width: 100%;
                               padding-top: 40px;
                               padding-bottom: 19px;
                }
 
-               .productdetails>img {
+               .productdetailsimage>img {
                               aspect-ratio: 3/3;
-                              height: 200px;
+                              height: 300px;
                }
 
                .favouriteproductname {
-                              width: 200px;
+                              width: 290px;
                }
 
                .favouriteproudctno>p {

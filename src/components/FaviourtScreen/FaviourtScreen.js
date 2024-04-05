@@ -20,7 +20,7 @@ const FaviourtScreen = () => {
   const dispatch = useDispatch()
   const { userfavourite } = useSelector((state) => state.cart)
   console.log(userfavourite, "added to favourite");
-  
+
   const removefavitem = (faviourt) => {
     dispatch(clearfavcart(faviourt))
   }
@@ -35,7 +35,7 @@ const FaviourtScreen = () => {
   const openmenu = () => {
     setshowmenus(!showmenus)
   }
-  
+
   const [loading, setloading] = useState(false);
   useEffect(() => {
     setloading(true)
@@ -43,7 +43,7 @@ const FaviourtScreen = () => {
       setloading(false)
     }, 1200);
   }, [])
-  
+
   const [showusernotificationn, setshowusernotificationn] = useState(false)
   const shownotification = () => {
     setshowusernotificationn(!showusernotificationn)
@@ -243,55 +243,55 @@ const FaviourtScreen = () => {
                       }}>Favourite</p>
                     </div>
                   </div>
+                  <div className='favouritecontainerbutton'>
+                    {userfavourite.length > 0 ? <button onClick={() => emptyfavcart()} className='favouritecontainerbtn'>Clear all favourite </button> : null}
+                  </div>
                   <div className='favouritecontainerow'>
-                    {userfavourite.length > 0 ? <button onClick={() => emptyfavcart()}>All clear</button> : null}
+                    {
+                      userfavourite.map((faviourt, index) => {
+                        return (
+                          <div className='favouritecontainercol'>
+                            <Link to={`/ProductDetails/${faviourt.id}`} style={{
+                              textDecoration: 'none'
+                            }} className='productimg productimg2'>
 
+                              <div className='productdetails' key={index}>
+                                <div className='productdetailsimage'>
+                                  <img src={faviourt.image} />
+                                </div>
+                                <Link onClick={(e) => removefavitem(faviourt, e)}>
+                                  <div className='productdetailsheartimg'>
+                                    <img src={heart1} alt='heart' />
+                                  </div>
+                                </Link>
+
+
+
+                                <div className='productname favouriteproductname'>
+                                  <div className='productoldnewprice'>
+                                    <div className='productprice'>
+                                      <p>Rs : {faviourt.productprice}</p>
+                                    </div>
+                                    <div className='oldproductprice'>
+                                      <p>{faviourt.oldproductprice}</p>
+                                    </div>
+                                  </div>
+                                  <div className='productimgp'>
+                                    <p>{faviourt.productname}</p>
+                                  </div>
+                                  <div className='productimgsub'>
+                                    <p>{faviourt.productsubname}</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </Link>
+                          </div>
+                        )
+                      })
+                    }
                   </div>
                 </div>
 
-
-
-                {
-                  userfavourite.map((faviourt, index) => {
-                    return (
-                      <div className='favouritecontainercol'>
-                        <Link to={`/ProductDetails/${faviourt.id}`} style={{
-                          textDecoration: 'none'
-                        }} className='productimg productimg2'>
-
-                          <div className='productdetails' key={index}>
-                            <img src={faviourt.image} />
-
-                            <Link onClick={(e) => removefavitem(faviourt, e)}>
-                              <div>
-                                <img src={heart1} alt='heart' />
-                              </div>
-                            </Link>
-
-
-
-                            <div className='productname favouriteproductname'>
-                              <div className='productoldnewprice'>
-                                <div className='productprice'>
-                                  <p>Rs : {faviourt.productprice}</p>
-                                </div>
-                                <div className='oldproductprice'>
-                                  <p>{faviourt.oldproductprice}</p>
-                                </div>
-                              </div>
-                              <div className='productimgp'>
-                                <p>{faviourt.productname}</p>
-                              </div>
-                              <div className='productimgsub'>
-                                <p>{faviourt.productsubname}</p>
-                              </div>
-                            </div>
-                          </div>
-                        </Link>
-                      </div>
-                    )
-                  })
-                }
               </> :
                 // <div className='favouriteproudctno'>
                 //   <p>Oops no, faviourt product's was <br /> founded.</p>
@@ -311,6 +311,9 @@ const FaviourtScreen = () => {
 
 
             }
+
+
+
           </>
       }
 
