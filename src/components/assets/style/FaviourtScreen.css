@@ -34,7 +34,6 @@
 .favouriteproudctno>img {
                width: 440px;
                opacity: 0.4;
-               margin-right: 140px;
                padding: 20px 0;
 }
 
@@ -103,14 +102,13 @@
 
                .favouriteproudctno>p {
                               font-family: var(--subtext);
-                              font-size: 25px;
+                              font-size: 24px;
                               color: rgba(124, 124, 124, 0.4);
                }
 
                .favouriteproudctno>img {
-                              width: 290px;
+                              width: 200px;
                               opacity: 0.4;
-                              margin-right: 10px;
-                              padding: 20px 0;
+                              padding: 50px 0;
                }
 }
