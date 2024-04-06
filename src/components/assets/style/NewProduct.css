@@ -943,3 +943,97 @@
         /* background-color: red; */
     }
 }
+
+@media (min-width:665px) and (max-width:1016px) {
+    .productsimgcontent {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .productsimg {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 9px 40px 9px;
+    }
+
+    .productsimgcatgories {
+        position: relative;
+    }
+
+    .productsimgcatgorieslist {
+        background-color: var(--navbar-color);
+        z-index: 70;
+        width: 143px;
+        height: 0;
+        box-shadow: 0px;
+        transition: .4s;
+        position: absolute;
+        top: 9;
+        overflow: auto;
+    }
+
+    .productsimage {
+        display: flex;
+        align-items: center;
+        display: none;
+    }
+
+    .productsimg4 {
+        width: 20px;
+    }
+
+    .productsimg2 {
+        width: 34px;
+        margin-right: 9px;
+    }
+
+    .productsimgcatgorieslistactive {
+        background-color: var(--navbar-color);
+        z-index: 99;
+        width: 143px;
+        height: 130px;
+        /* box-shadow: 0px 12px 19px 4px #0000002c; */
+        transition: .4s;
+        position: absolute;
+        top: 9;
+        overflow: auto;
+    }
+
+    .productsimgcatgorieslist .productcatgoriesbtn,
+    .productsimgcatgorieslistactive .productcatgoriesbtn {
+        margin: 15px 12px;
+    }
+
+    .productsimgcatgories>button {
+        /* background-color: var(--button-color); */
+        color: var(--text-color);
+        outline: none;
+        border: 2px solid var(--button-color);
+        /* border-radius: 12px; */
+        font-family: var(--subtext);
+        padding: 9px 12px;
+        font-size: 12px;
+        font-weight: 400;
+        display: flex;
+        align-items: center;
+    }
+
+    .productsimgcatgoriesmenu {
+        margin-left: 9px;
+        width: 19px;
+        height: 19px;
+        transition: .4s;
+    }
+
+    .productsimgcatgoriesmenu_active {
+        rotate: 180deg;
+        margin-left: 9px;
+        width: 19px;
+        height: 19px;
+        transition: .4s;
+    }
+}

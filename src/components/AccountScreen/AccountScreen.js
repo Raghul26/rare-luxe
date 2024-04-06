@@ -233,13 +233,17 @@ const AccountScreen = () => {
                                                 textDecoration: 'none'
                                             }}>Personal Information</Link></p>
                                             <p>Payment</p>
-                                            <p>
-                                                <Link to={'/faviourt'} style={{
-                                                    color: '#7C7C7C',
-                                                    fontWeight: '500',
-                                                    listStyleType: 'none',
-                                                    textDecoration: 'none'
-                                                }}>Faviourt</Link>
+                                            <p><Link to={'/faviourt'} style={{
+                                                color: '#212427',
+                                                listStyleType: 'none',
+                                                textDecoration: 'none'
+                                            }}>Faviourt</Link>
+                                            </p>
+                                            <p><Link to={'/notification'} style={{
+                                                color: '#212427',
+                                                listStyleType: 'none',
+                                                textDecoration: 'none'
+                                            }}>Notification</Link>
                                             </p>
                                         </div>
                                     </div>
@@ -299,11 +303,17 @@ const AccountScreen = () => {
                                                     <p>Payment</p>
                                                     <p>
                                                         <Link to={'/faviourt'} style={{
-                                                            color: '#7C7C7C',
-                                                            fontWeight: '500',
+                                                            color: '#212427',
                                                             listStyleType: 'none',
                                                             textDecoration: 'none'
                                                         }}>Faviourt</Link>
+                                                    </p>
+                                                    <p><Link to={'/notification'} style={{
+                                                        color: '#212427',
+                                                        fontFamily: 'var(--subtext)',
+                                                        listStyleType: 'none',
+                                                        textDecoration: 'none'
+                                                    }}>Notification</Link>
                                                     </p>
                                                 </div>
                                             </div>

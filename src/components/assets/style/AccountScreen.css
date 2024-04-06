@@ -84,6 +84,7 @@
     color: var(--text-color);
     font-weight: 300;
     line-height: 25px;
+    height: max-content;
 }
 
 .logoutbtn {
@@ -321,7 +322,7 @@
 
     .information_listhead_active1 {
         width: 90%;
-        height: 120px;
+        height: 150px;
         overflow: hidden;
         transition: .4s ease;
     }
