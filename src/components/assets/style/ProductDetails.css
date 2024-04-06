@@ -24,7 +24,8 @@
 }
 
 .ProductDetails_sizeimg>img {
-    width: 490px;
+    width: 300px;
+    max-width: 450px;
     border-radius: 4px;
 }
 
@@ -102,7 +103,7 @@
     font-family: var(--subtext);
     /* font-size: 17px; */
     color: var(--text-color);
-    padding-bottom: 12px;
+    padding-bottom: 9px;
     font-weight: 500;
     letter-spacing: 0.40px;
     padding-right: 9px;
@@ -192,6 +193,7 @@
     padding-bottom: 13px;
     font-weight: normal;
     letter-spacing: 0.54px;
+    line-height: 24px;
 }
 
 .ProductDetailsbutton {
@@ -201,8 +203,8 @@
 
 .ProductDetailscartbtn {
     background-color: var(--button-color);
-    width: 135px;
-    height: 32px;
+    width: 100%;
+    height: 40px;
     font-size: 16px;
     font-weight: 400;
     letter-spacing: 0.54px;
@@ -214,6 +216,7 @@
     cursor: pointer;
     border-radius: 4px;
     margin-right: 12px;
+    margin-bottom: 15px;
 }
 
 .ProductDetailsbuybtn {
@@ -222,8 +225,8 @@
     color: var(--text-color);
     font-weight: 400;
     cursor: pointer;
-    width: 135px;
-    height: 32px;
+    width: 100%;
+    height: 40px;
     border: 1px solid var(--button-color);
     letter-spacing: 0.54px;
     border-radius: 4px;
@@ -234,8 +237,8 @@
 
 .ProductDetailscartdisablebtn {
     background-color: #1d1c137a;
-    width: 135px;
-    height: 32px;
+    width: 100%;
+    height: 40px;
     font-size: 16px;
     font-weight: 400;
     letter-spacing: 0.54px;
@@ -247,6 +250,7 @@
     cursor: pointer;
     border-radius: 4px;
     margin-right: 12px;
+    margin-bottom: 12px;
     cursor: not-allowed;
 }
 
@@ -256,8 +260,8 @@
     color: var(--button-color);
     font-weight: 400;
     cursor: pointer;
-    width: 135px;
-    height: 32px;
+    width: 100%;
+    height: 40px;
     border: 1px solid #1d1c137a;
     letter-spacing: 0.54px;
     border-radius: 4px;
@@ -282,7 +286,7 @@
 
     .ProductDetailstopback {
         display: block;
-        margin: 18px 0;
+        margin: 21px 0;
     }
 
     .ProductDetailstop {
@@ -407,8 +411,12 @@
 }
 
 @media (min-width:320px) and (max-width:810px) {
+    .ProductDetailstopback {
+        display: block;
+        margin: 18px 0;
+    }
     .PrdouctDetailscontainer {
-        padding-top: 90px;
+        padding-top: 60px;
     }
 
     .ProductDetails_img>img {
@@ -440,7 +448,8 @@
         font-weight: 500;
         font-size: 23px;
         letter-spacing: 0.54px;
-        padding: 19px 0;
+        padding-top: 19px;
+        padding-bottom: 9px;
         width: max-content;
     }
 
@@ -469,8 +478,8 @@
     }
 
     .ProductDetails_ratings>img {
-        width: 21px;
-        height: 21px;
+        width: 19px;
+        height: 19px;
     }
 
     .ProductDetails_offer {
@@ -493,7 +502,7 @@
     .ProductDetailscartdisablebtn {
         background-color: #1d1c137a;
         width: 100% !important;
-        height: 32px;
+        height: 40px;
         font-size: 16px;
         font-weight: 400;
         letter-spacing: 0.54px;
@@ -516,7 +525,7 @@
         font-weight: 400;
         cursor: pointer;
         width: 100% !important;
-        height: 32px;
+        height: 40px;
         border: 1px solid #1d1c137a;
         letter-spacing: 0.54px;
         border-radius: 4px;

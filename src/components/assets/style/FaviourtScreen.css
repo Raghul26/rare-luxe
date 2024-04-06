@@ -9,7 +9,7 @@
 .favouritecontainerow {
                display: flex;
                align-items: flex-start;
-               justify-content: flex-start;
+               justify-content: center;
                flex-wrap: wrap;
                /* flex-direction: column; */
                width: 100%;
@@ -44,7 +44,7 @@
 }
 
 .favouritecontainerbutton {
-               padding-bottom: 19px;
+               padding-bottom: 29px;
                width: 100%;
 }
 
@@ -76,7 +76,24 @@
                cursor: pointer;
 }
 
+@media (min-width:200px) and (max-width:500px) {
+               .favouritecontainercol {
+                              display: flex;
+                              align-items: center;
+                              justify-content: center !important;
+                              width: 100%;
+                              padding-top: 40px;
+                              padding-bottom: 19px;
+                              /* background-color: red; */
+               }
+}
+
 @media (min-width:250px) and (max-width:790px) {
+               .favouritecontainerbutton {
+                              padding-bottom: 0px;
+                              width: 100%;
+               }
+
                .favouritecontainer {
                               padding-top: 60px;
                               padding-left: 0px;

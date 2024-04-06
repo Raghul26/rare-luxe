@@ -278,6 +278,20 @@ const CartScreen = ({ id, image, productname, productsubname, rating, productpri
                                                                 textDecoration: 'none'
                                                             }}>Personal Information</Link></p>
                                                             <p>Payment</p>
+                                                            <p>
+                                                                <Link to={'/faviourt'} style={{
+                                                                    color: '#212427',
+                                                                    listStyleType: 'none',
+                                                                    textDecoration: 'none'
+                                                                }}>Faviourt</Link>
+                                                            </p>
+                                                            <p><Link to={'/notification'} style={{
+                                                                color: '#212427',
+                                                                fontFamily: 'var(--subtext)',
+                                                                listStyleType: 'none',
+                                                                textDecoration: 'none'
+                                                            }}>Notification</Link>
+                                                            </p>
                                                         </div>
                                                     </div>
                                                     <div>

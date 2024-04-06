@@ -318,12 +318,12 @@
 }
 
 .cartcontantcolcartcontantsubprice {
-               display: block;
+               display: none;
                /* background-color: red; */
 }
 
 .cartcontantsubp {
-               padding-bottom: 20px !important;
+               padding-bottom: 29px !important;
 }
 
 .cartordercontentcoltotaltyperowcloseopenbtn,
@@ -440,12 +440,16 @@
 
                .cartcontantp {
                               font-size: 17px;
-                              padding-bottom: 12px;
+                              padding-bottom: 5px;
                               letter-spacing: 2%;
                               font-weight: 500;
                               width: max-content;
                               z-index: 90;
                }
+
+               /* .cartcontantsubp {
+                              padding-bottom: 10px !important;
+               } */
 
                /* .cartordercontentcol {
                               background-color: red;
@@ -453,6 +457,7 @@
                } */
 
                .cartcontantsubp {
+                              display: none;
                               font-size: 12px;
                               letter-spacing: 3%;
                               color: var(--subtext-color);
@@ -473,11 +478,13 @@
 
                .cartcontantcolcartcontantsubprice {
                               /* background-color: #212427; */
-                              padding: 12px 0;
+                              padding-top: 4px;
+                              padding-bottom: 19px;
+                              display: block;
                }
 
                .cartcontantsubprice {
-                              display: none;
+                              display: block;
                }
 
                .cartordercontenttitle,
@@ -494,8 +501,9 @@
                .cartordercontentcol {
                               /* background-color: red; */
                               overflow-y: scroll !important;
+                              -webkit-overflow-scrolling: scroll !important;
                               height: max-content;
-                              padding-bottom: 190px;
+                              padding-bottom: 100px;
                }
 
                .cartordercontentcoltotaltyperow {
@@ -519,7 +527,7 @@
                               position: fixed;
                               bottom: 0;
                               left: 0;
-                              top: 620px;
+                              top: 820px;
                               width: 101%;
                               display: flex;
                               padding: 9px;
@@ -538,7 +546,7 @@
                               background-color: var(--navbar-color);
                               box-shadow: 0 6px 29px 0 #00000053;
                               position: absolute;
-                              top: -50px;
+                              top: -260px;
                               right: 15px;
                               display: block;
                               padding: 7px;
@@ -587,7 +595,8 @@
                }
 
                .cartordercontenttotal {
-                              background-color: var(--navbar-color);
+                              /* background-color: var(--navbar-color); */
+                              /* background-color: red; */
                               width: 100%;
                               height: max-content;
                               padding-top: 12px;
