@@ -183,7 +183,7 @@ const NewProduct = () => {
                                                             </Link> */}
 
                                                             <Link onClick={(e) => sendtofavourite(product, e)}>
-                                                                <div className='productimgicon'>
+                                                                <div className='productimgicon productimgicon2'>
                                                                     <img src={heart} alt='heart' />
                                                                 </div>
                                                             </Link>
